@@ -1,0 +1,23 @@
+allowBuilds:
+  '@parcel/watcher': false
+  '@tailwindcss/oxide': true
+  better-sqlite3: true
+  core-js: false
+  esbuild: false
+  sharp: true
+  unrs-resolver: false
+  vue-demi: false
+
+# Hoist público de las deps transitivas de @nuxtjs/mdc (Nuxt Content) para que
+# el pre-bundling de Vite las resuelva. Silencia "Unresolvable optimizeDeps.include".
+publicHoistPattern:
+  - remark-gfm
+  - remark-emoji
+  - remark-mdc
+  - remark-rehype
+  - rehype-raw
+  - parse5
+  - unist-util-visit
+  - unified
+  - debug
+  - extend

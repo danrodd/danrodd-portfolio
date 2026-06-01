@@ -1,0 +1,36 @@
+{
+  "name": "dannrodd-portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "dev": "nuxt dev",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "biome lint",
+    "format": "biome format --write",
+    "check": "biome check --write",
+    "typecheck": "nuxt typecheck"
+  },
+  "dependencies": {
+    "@lucide/vue": "^1.17.0",
+    "@nuxt/content": "3.14.0",
+    "@nuxt/fonts": "^0.14.0",
+    "@nuxt/image": "2.0.0",
+    "@nuxtjs/i18n": "^10.4.0",
+    "@tailwindcss/vite": "^4.3.0",
+    "@vueuse/nuxt": "14.3.0",
+    "nuxt": "^4.4.6",
+    "nuxt-seo-utils": "8.1.11",
+    "shadcn-nuxt": "2.7.3",
+    "tailwindcss": "^4.3.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.16",
+    "better-sqlite3": "^12.10.0",
+    "typescript": "^6.0.3",
+    "vue-tsc": "^3.3.3"
+  },
+  "packageManager": "pnpm@11.5.0"
+}

@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "title": "Daniel Rodríguez Solarte — Arquitecto de Software & DevSecOps",
+    "description": "Diseño sistemas distribuidos que aguantan auditoría, escala y el lunes en la mañana."
+  },
+  "role": "Arquitecto de software · DevSecOps · Tech Lead",
+  "pitch": "Diseña sistemas distribuidos que aguantan auditoría, escala y el lunes en la mañana.",
+  "nav": {
+    "about": "Sobre mí",
+    "experience": "Trayectoria",
+    "work": "Trabajo",
+    "decisions": "Decisiones",
+    "stack": "Stack",
+    "now": "Ahora"
+  }
+}

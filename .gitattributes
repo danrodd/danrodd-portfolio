@@ -1,0 +1,18 @@
+# Normaliza todos los archivos de texto a LF en el repositorio,
+# sin importar el core.autocrlf de cada máquina (Windows dev ↔ CI Ubuntu).
+* text=auto eol=lf
+
+# Archivos binarios: que git no los toque.
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.webp  binary
+*.avif  binary
+*.woff  binary
+*.woff2 binary
+*.pdf   binary
+
+# Lockfile: generado, colapsado en diffs de PR.
+pnpm-lock.yaml -diff linguist-generated

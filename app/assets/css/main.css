@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+/* Activa la variante `dark:` por clase .dark en <html> (la pone useColorMode) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ─── Tokens semánticos (cambian con el tema) ───
+   Definidos como CSS vars en :root / .dark; expuestos a Tailwind con @theme inline
+   para que utilidades como bg-bg, text-ink, text-accent reaccionen al modo oscuro. */
+:root {
+  --bg: #fafaf7;
+  --bg-soft: #f2f2ee;
+  --paper: #ffffff;
+  --ink: #0a0a0a;
+  --ink-soft: #1c1c1c;
+  --muted: #525252;
+  --dim: #6b6b6b;
+  --line: #e4e3de;
+  --line-strong: #cfcec8;
+  --accent: #047857;
+  --accent-bright: #10b981;
+}
+
+.dark {
+  --bg: #0a0e0a;
+  --bg-soft: #11161a;
+  --paper: #14191e;
+  --ink: #e8eae5;
+  --ink-soft: #c8cac5;
+  --muted: #a0a4a0;
+  --dim: #7a7e78;
+  --line: #1f2520;
+  --line-strong: #2a302a;
+  --accent: #34d399;
+  --accent-bright: #6ee7b7;
+}
+
+@theme inline {
+  /* Familias — @nuxt/fonts detecta estos nombres y los auto-hospeda */
+  --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Colores semánticos → generan bg-*, text-*, border-* */
+  --color-bg: var(--bg);
+  --color-bg-soft: var(--bg-soft);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-muted: var(--muted);
+  --color-dim: var(--dim);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-bright: var(--accent-bright);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "cv11", "ss01";
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+/* Acento serif italic reutilizable (la "firma" del diseño) */
+.ital {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--accent);
+  letter-spacing: -0.005em;
+}
