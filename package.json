@@ -7,7 +7,7 @@
     "generate": "nuxt generate",
     "dev": "nuxt dev",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
+    "postinstall": "nuxt prepare && lefthook install",
     "lint": "biome lint",
     "format": "biome format --write",
     "check": "biome check --write",
@@ -30,6 +30,7 @@
   "devDependencies": {
     "@biomejs/biome": "2.4.16",
     "better-sqlite3": "^12.10.0",
+    "lefthook": "^2.1.9",
     "typescript": "^6.0.3",
     "vue-tsc": "^3.3.3"
   },

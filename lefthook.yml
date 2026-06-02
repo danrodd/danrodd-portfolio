@@ -1,0 +1,28 @@
+# Hooks de git gestionados por lefthook (binario único, rápido, sin overhead de Node).
+# Se sincronizan con git en cada `pnpm install` (ver postinstall) o con:
+#   pnpm exec lefthook install
+#
+# pre-commit  → rápido: biome (lint + format) SOLO sobre los archivos staged.
+# pre-push    → más pesado: chequeo de tipos completo, una sola vez al hacer push.
+
+pre-commit:
+  parallel: true
+  jobs:
+    - name: biome
+      glob: '*.{js,ts,vue,json,jsonc,css}'
+      # Arregla lo auto-corregible y re-agrega esos archivos al commit (stage_fixed).
+      run: pnpm exec biome check --write --no-errors-on-unmatched {staged_files}
+      stage_fixed: true
+
+pre-push:
+  jobs:
+    - name: typecheck
+      run: pnpm typecheck
+
+# commit-msg -> valida que el mensaje siga Conventional Commits.
+# {1} = ruta al archivo del mensaje que git pasa al hook (.git/COMMIT_EDITMSG).
+# Regex acepta: tipo(scope opcional)!?: descripcion
+commit-msg:
+  jobs:
+    - name: conventional-commit
+      run: sh .lefthook/commit-msg.sh {1}
