@@ -6,6 +6,11 @@
  * coincidan; recién se actualizan en cliente (onMounted), evitando mismatch.
  * El botón ⌘K aún no tiene lógica (command palette → Fase 4).
  */
+import { Search } from 'lucide-vue-next'
+
+const { t } = useI18n()
+const { toggle: toggleCmdk } = useCommandPalette()
+
 const time = ref('--:--:--')
 const latency = ref('25ms')
 
@@ -76,13 +81,19 @@ onMounted(() => {
         </span>
       </div>
 
-      <!-- Botón ⌘K (sin lógica aún — Fase 4) -->
+      <!-- Disparador del command palette, con aspecto de buscador para que se
+           entienda su función (también se abre con ⌘/Ctrl+K). En móvil, solo la lupa. -->
       <button
         type="button"
-        aria-label="Abrir paleta de comandos"
-        class="inline-flex shrink-0 items-center gap-0.5 rounded-md border border-white/10 px-2 py-0.5 text-[0.66rem] transition-colors hover:border-[#10b981]"
+        :aria-label="t('cmdk.placeholder')"
+        class="inline-flex shrink-0 cursor-pointer items-center gap-1.5 rounded-md border border-white/10 px-2 py-0.5 text-white/70 transition-colors hover:border-[#10b981] hover:text-white"
+        @click="toggleCmdk"
       >
-        <span class="text-[0.8em]">⌘</span>K
+        <Search :size="12" class="shrink-0" />
+        <span class="hidden sm:inline">{{ t('cmdk.search') }}</span>
+        <kbd class="hidden items-center rounded border border-white/15 px-1 text-[0.6rem] sm:inline-flex">
+          <span class="text-[0.85em]">⌘</span>K
+        </kbd>
       </button>
     </div>
   </div>

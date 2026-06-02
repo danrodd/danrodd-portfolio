@@ -72,6 +72,18 @@
     "exploring": "explorando",
     "exploringMeta": "contenido de ejemplo"
   },
+  "cmdk": {
+    "search": "Buscar",
+    "placeholder": "Buscar sección o acción…",
+    "toggleTheme": "Cambiar tema",
+    "switchLang": "Cambiar idioma",
+    "copyEmail": "Copiar email",
+    "downloadCv": "Descargar CV",
+    "empty": "Sin resultados",
+    "navigate": "navegar",
+    "run": "ejecutar",
+    "close": "cerrar"
+  },
   "colophon": {
     "text": "Diseñado y construido por mí. Tipografía: Inter Tight · Instrument Serif · JetBrains Mono. Hospedado en mi propio clúster K3s. Sin trackers.",
     "changelogHead": "cambios recientes",

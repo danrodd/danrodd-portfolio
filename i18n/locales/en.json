@@ -72,6 +72,18 @@
     "exploring": "exploring",
     "exploringMeta": "sample content"
   },
+  "cmdk": {
+    "search": "Search",
+    "placeholder": "Search a section or action…",
+    "toggleTheme": "Toggle theme",
+    "switchLang": "Switch language",
+    "copyEmail": "Copy email",
+    "downloadCv": "Download CV",
+    "empty": "No results",
+    "navigate": "navigate",
+    "run": "run",
+    "close": "close"
+  },
   "colophon": {
     "text": "Designed and built by me. Typography: Inter Tight · Instrument Serif · JetBrains Mono. Hosted on my own K3s cluster. No trackers.",
     "changelogHead": "recent changes",

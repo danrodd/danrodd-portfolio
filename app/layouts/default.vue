@@ -17,6 +17,7 @@
 
     <TheHud />
     <MobileNav />
+    <TheCommandPalette />
 
     <div class="mx-auto grid max-w-[1240px] gap-12 px-7 lg:grid-cols-[320px_1fr] lg:gap-20">
       <TheSidebar class="lg:sticky lg:top-8 lg:h-[calc(100vh-2rem)] lg:overflow-y-auto" />
