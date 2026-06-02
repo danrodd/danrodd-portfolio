@@ -72,6 +72,14 @@
     "exploring": "explorando",
     "exploringMeta": "contenido de ejemplo"
   },
+  "error": {
+    "notFound": "Página no encontrada",
+    "notFoundText": "La ruta que buscas no existe o se movió a otra dirección.",
+    "generic": "Algo salió mal",
+    "genericText": "Ocurrió un error inesperado.",
+    "home": "volver al inicio",
+    "explore": "o salta a una sección"
+  },
   "cmdk": {
     "search": "Buscar",
     "placeholder": "Buscar sección o acción…",
