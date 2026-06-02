@@ -1,0 +1,70 @@
+<script setup lang="ts">
+import { FileText, Mail } from 'lucide-vue-next'
+
+/**
+ * Pie del sidebar: separador + fila de social (email, WhatsApp, GitHub,
+ * LinkedIn, CV) y los controles de idioma y tema.
+ * Los logos de marca son SVG inline (lucide ya no los trae).
+ */
+</script>
+
+<template>
+  <div class="mt-10 flex flex-col gap-5 border-t border-line pt-5">
+    <ul class="flex items-center gap-4">
+      <li>
+        <a
+          href="mailto:daniel@example.dev"
+          aria-label="Email"
+          class="text-muted transition-colors hover:text-accent"
+        >
+          <Mail :size="20" />
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://wa.me/57"
+          target="_blank"
+          rel="noopener"
+          aria-label="WhatsApp"
+          class="text-muted transition-colors hover:text-accent"
+        >
+          <IconWhatsapp />
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          aria-label="GitHub"
+          class="text-muted transition-colors hover:text-accent"
+        >
+          <IconGithub />
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          aria-label="LinkedIn"
+          class="text-muted transition-colors hover:text-accent"
+        >
+          <IconLinkedin />
+        </a>
+      </li>
+      <li>
+        <a
+          href="/cv.pdf"
+          target="_blank"
+          rel="noopener"
+          aria-label="Descargar CV (PDF)"
+          class="text-muted transition-colors hover:text-accent"
+        >
+          <FileText :size="20" />
+        </a>
+      </li>
+    </ul>
+
+    <div class="flex items-center gap-2">
+      <LangToggle />
+      <ThemeToggle />
+    </div>
+  </div>
+</template>
