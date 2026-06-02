@@ -1,5 +1,12 @@
 import tailwindcss from '@tailwindcss/vite'
 
+// Prefijo de marca para todo lo que el sitio persista en el navegador
+// (localStorage y cookies). Mantiene el storage ordenado e identificable al
+// abrir devtools. Convención: `dannrodd-<clave>`. Se usa `-` (no `:`) porque es
+// válido tanto en localStorage como en nombres de cookie (el `:` no es estándar
+// en cookies), así todas las claves comparten el mismo separador.
+const STORAGE_PREFIX = 'dannrodd'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
@@ -7,10 +14,21 @@ export default defineNuxtConfig({
     '@nuxt/image', // optimización de imágenes (avatar, OG)
     '@nuxt/fonts', // fuentes self-hosted (detecta familias del CSS)
     '@nuxtjs/i18n', // ES/EN con rutas (ADR-003)
-    '@vueuse/nuxt', // composables: useColorMode, useMagicKeys, useClipboard…
-    'nuxt-seo-utils' // og:tags, meta, canonical
+    '@vueuse/nuxt', // composables: useIntervalFn, useMagicKeys, useClipboard…
+    'nuxt-seo-utils', // og:tags, meta, canonical
+    '@nuxtjs/color-mode' // modo claro/oscuro sin flash en SSG (ADR del sitio)
     // 'shadcn-nuxt'  // requiere `npx shadcn-vue@latest init` antes de activar
   ],
+
+  // Modo de color: el módulo inyecta su script anti-flash en <head> antes del
+  // primer pintado. classSuffix '' → clase `.dark`/`.light` en <html>, que es
+  // lo que espera nuestro @custom-variant dark en main.css.
+  colorMode: {
+    classSuffix: '',
+    preference: 'system', // respeta prefers-color-scheme por defecto
+    fallback: 'light',
+    storageKey: `${STORAGE_PREFIX}-theme` // localStorage → 'dannrodd-theme'
+  },
 
   devtools: { enabled: true },
 
@@ -49,7 +67,13 @@ export default defineNuxtConfig({
     locales: [
       { code: 'es', language: 'es-CO', name: 'Español', file: 'es.json' },
       { code: 'en', language: 'en-US', name: 'English', file: 'en.json' }
-    ]
+    ],
+    // Misma convención de prefijo que el theme: cookie 'dannrodd-lang' en vez
+    // del 'i18n_redirected' por defecto.
+    detectBrowserLanguage: {
+      cookieKey: `${STORAGE_PREFIX}-lang`,
+      redirectOn: 'root'
+    }
   },
 
   // Prerender estático del home; las rutas server se agregan luego si hacen falta

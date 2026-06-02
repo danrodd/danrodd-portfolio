@@ -2,15 +2,16 @@
 import { Moon, Sun } from 'lucide-vue-next'
 
 /**
- * Toggle de tema claro/oscuro.
- * Interim con `useColorMode` (VueUse): pone la clase .dark en <html>.
- * NOTA: el flash de tema en la primera carga SSG es justo lo que resolverá
- * el A/B del color-mode (ver docs/ROADMAP.md → Decisiones pendientes).
+ * Toggle de tema claro/oscuro con @nuxtjs/color-mode.
+ * `useColorMode()` (composable del módulo) expone `preference` (lo que elige el
+ * usuario: 'light'|'dark'|'system') y `value` (el color ya resuelto). El módulo
+ * inyecta el script anti-flash en <head>, así que no hace falta nada extra para
+ * evitar el parpadeo en la primera carga SSG.
  */
 const colorMode = useColorMode()
 
 const toggle = () => {
-  colorMode.value = colorMode.value === 'dark' ? 'light' : 'dark'
+  colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
 }
 </script>
 
@@ -22,7 +23,7 @@ const toggle = () => {
     @click="toggle"
   >
     <ClientOnly>
-      <Sun v-if="colorMode === 'dark'" :size="14" />
+      <Sun v-if="colorMode.value === 'dark'" :size="14" />
       <Moon v-else :size="14" />
       <template #fallback>
         <Moon :size="14" />
