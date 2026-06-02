@@ -5,7 +5,6 @@
   },
   "role": "Arquitecto de software · DevSecOps · Tech Lead",
   "pitch": "Diseña sistemas distribuidos que aguantan auditoría, escala y el lunes en la mañana.",
-  "placeholder": "Sección pendiente de portar (Fase 2+).",
   "nav": {
     "about": "Sobre mí",
     "experience": "Trayectoria",
@@ -13,5 +12,77 @@
     "decisions": "Decisiones",
     "stack": "Stack",
     "now": "Ahora"
+  },
+  "sections": {
+    "about": { "title": "Sobre mí", "mark": "01 — sobre mí" },
+    "experience": {
+      "title": "Trayectoria",
+      "mark": "02 — trayectoria",
+      "cta": "ver CV completo (PDF)"
+    },
+    "work": {
+      "title": "Trabajo seleccionado",
+      "mark": "03 — trabajo seleccionado",
+      "intro": "Contenido de ejemplo — los casos reales se publicarán tras su validación."
+    },
+    "decisions": {
+      "title": "Decisiones públicas",
+      "mark": "04 — decisiones públicas",
+      "intro": "Registros de decisiones arquitectónicas (ADRs). Contenido de ejemplo."
+    },
+    "stack": {
+      "title": "Stack",
+      "mark": "05 — stack",
+      "intro": "Lo que opero en producción, visto como capas — del request del usuario hasta el hierro.",
+      "flow": "request"
+    },
+    "now": {
+      "title": "Ahora",
+      "mark": "06 — ahora",
+      "intro": "Estado actual de lo que estoy operando, construyendo y estudiando.",
+      "updated": "última actualización"
+    }
+  },
+  "experience": {
+    "e1": {
+      "role": "Cargo de ejemplo · Especialidad",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    "e2": {
+      "role": "Cargo de ejemplo · Especialidad",
+      "desc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure."
+    },
+    "e3": {
+      "role": "Cargo de ejemplo · Especialidad",
+      "desc": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat."
+    }
+  },
+  "verbs": {
+    "develop": "desarrollo",
+    "govern": "gobierno",
+    "operate": "opero",
+    "model": "modelo",
+    "instrument": "instrumento · atraviesa todas las capas"
+  },
+  "nowLabels": {
+    "building": "construyendo",
+    "operating": "operando",
+    "studying": "estudiando",
+    "reading": "leyendo",
+    "exploring": "explorando",
+    "exploringMeta": "contenido de ejemplo"
+  },
+  "colophon": {
+    "text": "Diseñado y construido por mí. Tipografía: Inter Tight · Instrument Serif · JetBrains Mono. Hospedado en mi propio clúster K3s. Sin trackers.",
+    "changelogHead": "cambios recientes",
+    "endpointsHead": "endpoints",
+    "lastUpdated": "última actualización",
+    "madeWith": "hecho con",
+    "from": "desde Bogotá",
+    "changes": {
+      "c1": "portada la estructura de secciones (contenido de ejemplo)",
+      "c2": "navegación del sidebar como diagrama",
+      "c3": "modo claro/oscuro sin flash con el módulo color-mode"
+    }
   }
 }

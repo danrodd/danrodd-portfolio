@@ -5,7 +5,6 @@
   },
   "role": "Software architect · DevSecOps · Tech Lead",
   "pitch": "Designs distributed systems that survive audits, scale, and Monday mornings.",
-  "placeholder": "Section pending to port (Phase 2+).",
   "nav": {
     "about": "About",
     "experience": "Experience",
@@ -13,5 +12,77 @@
     "decisions": "Decisions",
     "stack": "Stack",
     "now": "Now"
+  },
+  "sections": {
+    "about": { "title": "About", "mark": "01 — about" },
+    "experience": {
+      "title": "Experience",
+      "mark": "02 — experience",
+      "cta": "view full CV (PDF)"
+    },
+    "work": {
+      "title": "Selected work",
+      "mark": "03 — selected work",
+      "intro": "Sample content — real cases will be published once validated."
+    },
+    "decisions": {
+      "title": "Public decisions",
+      "mark": "04 — public decisions",
+      "intro": "Architecture decision records (ADRs). Sample content."
+    },
+    "stack": {
+      "title": "Stack",
+      "mark": "05 — stack",
+      "intro": "What I operate in production, seen as layers — from the user request down to the metal.",
+      "flow": "request"
+    },
+    "now": {
+      "title": "Now",
+      "mark": "06 — now",
+      "intro": "Current status of what I'm operating, building and studying.",
+      "updated": "last updated"
+    }
+  },
+  "experience": {
+    "e1": {
+      "role": "Sample role · Specialty",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    "e2": {
+      "role": "Sample role · Specialty",
+      "desc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure."
+    },
+    "e3": {
+      "role": "Sample role · Specialty",
+      "desc": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat."
+    }
+  },
+  "verbs": {
+    "develop": "develop",
+    "govern": "govern",
+    "operate": "operate",
+    "model": "model",
+    "instrument": "instrument · crosses every layer"
+  },
+  "nowLabels": {
+    "building": "building",
+    "operating": "operating",
+    "studying": "studying",
+    "reading": "reading",
+    "exploring": "exploring",
+    "exploringMeta": "sample content"
+  },
+  "colophon": {
+    "text": "Designed and built by me. Typography: Inter Tight · Instrument Serif · JetBrains Mono. Hosted on my own K3s cluster. No trackers.",
+    "changelogHead": "recent changes",
+    "endpointsHead": "endpoints",
+    "lastUpdated": "last updated",
+    "madeWith": "made with",
+    "from": "from Bogotá",
+    "changes": {
+      "c1": "ported the section structure (sample content)",
+      "c2": "sidebar navigation as a diagram",
+      "c3": "flash-free light/dark mode via the color-mode module"
+    }
   }
 }
