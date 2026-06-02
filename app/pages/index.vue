@@ -1,41 +1,28 @@
 <script setup lang="ts">
-import { Moon, Sun, Terminal } from '@lucide/vue'
+import { NAV_SECTIONS } from '~/data/nav'
 
+/**
+ * Home. Por ahora apila placeholders de cada sección para validar el shell
+ * y la navegación. En Fase 2+ cada placeholder se reemplaza por su componente
+ * real (<AboutSection />, <ExperienceTimeline />, etc.).
+ */
 const { t } = useI18n()
-
-// useColorMode de VueUse: pone la clase .dark/.light en <html>
-const colorMode = useColorMode()
-const toggleTheme = () => {
-  colorMode.value = colorMode.value === 'dark' ? 'light' : 'dark'
-}
 </script>
 
 <template>
-  <main class="mx-auto max-w-3xl px-7 py-24">
-    <p class="mb-4 flex items-center gap-2 font-mono text-sm text-accent">
-      <Terminal :size="16" />
-      <span>whoami</span>
-    </p>
-
-    <h1 class="text-5xl font-bold tracking-tight text-ink">
-      Daniel Rodríguez
-      <span class="ital font-normal">Solarte</span>
-    </h1>
-
-    <p class="mt-4 font-mono text-sm text-accent">{{ t('role') }}</p>
-    <p class="mt-6 max-w-xl text-lg text-muted">{{ t('pitch') }}</p>
-
-    <button
-      class="mt-8 inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm text-muted transition hover:border-accent hover:text-accent"
-      @click="toggleTheme"
+  <div class="flex flex-col gap-24 py-14">
+    <section
+      v-for="section in NAV_SECTIONS"
+      :id="section.id"
+      :key="section.id"
+      class="scroll-mt-20"
     >
-      <Sun v-if="colorMode === 'dark'" :size="15" />
-      <Moon v-else :size="15" />
-      <span>{{ colorMode === 'dark' ? 'light' : 'dark' }}</span>
-    </button>
-
-    <p class="mt-16 font-mono text-xs text-dim">
-      esqueleto base · v0.1
-    </p>
-  </main>
+      <p class="font-mono text-sm lowercase tracking-wide text-accent">
+        {{ section.num }} — {{ t(`nav.${section.id}`) }}
+      </p>
+      <p class="mt-3 text-sm text-muted">
+        {{ t('placeholder') }}
+      </p>
+    </section>
+  </div>
 </template>

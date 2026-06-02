@@ -14,13 +14,13 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "@lucide/vue": "^1.17.0",
     "@nuxt/content": "3.14.0",
     "@nuxt/fonts": "^0.14.0",
     "@nuxt/image": "2.0.0",
     "@nuxtjs/i18n": "^10.4.0",
     "@tailwindcss/vite": "^4.3.0",
     "@vueuse/nuxt": "14.3.0",
+    "lucide-vue-next": "0.577.0",
     "nuxt": "^4.4.6",
     "nuxt-seo-utils": "8.1.11",
     "shadcn-nuxt": "2.7.3",

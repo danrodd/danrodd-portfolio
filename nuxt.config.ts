@@ -14,6 +14,10 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
+  // Componentes auto-importados por nombre de archivo (sin prefijo de carpeta):
+  // components/layout/TheHud.vue → <TheHud />, no <LayoutTheHud />.
+  components: [{ path: '~/components', pathPrefix: false }],
+
   // Universal rendering ON (HTML real para SEO). SSG/SSR es decisión de DEPLOY,
   // no de este flag: `nuxt generate` = estático, `nuxt build` = servidor Nitro.
   ssr: true,
@@ -35,7 +39,7 @@ export default defineNuxtConfig({
     plugins: [tailwindcss()],
     // pre-bundlea los íconos en dev para evitar reloads al descubrirlos en runtime
     optimizeDeps: {
-      include: ['@lucide/vue']
+      include: ['lucide-vue-next']
     }
   },
 
@@ -51,6 +55,13 @@ export default defineNuxtConfig({
   // Prerender estático del home; las rutas server se agregan luego si hacen falta
   routeRules: {
     '/': { prerender: true }
+  },
+
+  // Config de sitio (nuxt-site-config, usada por nuxt-seo-utils para canonical/OG).
+  site: {
+    name: 'Daniel Rodríguez Solarte',
+    url: 'https://daniel.rs',
+    defaultLocale: 'es'
   },
 
   compatibilityDate: '2025-01-15'
