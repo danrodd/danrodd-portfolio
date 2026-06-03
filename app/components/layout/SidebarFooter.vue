@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { FileText, Mail } from 'lucide-vue-next'
+import { SITE_CONTACT } from '~/data/site'
 
 /**
  * Pie del sidebar: separador + fila de social (email, WhatsApp, GitHub,
@@ -14,7 +15,7 @@ const { t } = useI18n()
     <ul class="flex items-center gap-4">
       <li>
         <a
-          href="mailto:daniel@example.dev"
+          :href="`mailto:${SITE_CONTACT.email}`"
           aria-label="Email"
           class="text-muted transition-colors hover:text-accent"
         >
@@ -23,7 +24,7 @@ const { t } = useI18n()
       </li>
       <li>
         <a
-          href="https://wa.me/57"
+          :href="SITE_CONTACT.whatsapp"
           target="_blank"
           rel="noopener"
           aria-label="WhatsApp"
@@ -34,7 +35,9 @@ const { t } = useI18n()
       </li>
       <li>
         <a
-          href="#"
+          :href="SITE_CONTACT.github"
+          target="_blank"
+          rel="noopener"
           aria-label="GitHub"
           class="text-muted transition-colors hover:text-accent"
         >
@@ -43,7 +46,9 @@ const { t } = useI18n()
       </li>
       <li>
         <a
-          href="#"
+          :href="SITE_CONTACT.linkedin"
+          target="_blank"
+          rel="noopener"
           aria-label="LinkedIn"
           class="text-muted transition-colors hover:text-accent"
         >

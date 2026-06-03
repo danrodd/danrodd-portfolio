@@ -4,12 +4,20 @@
  * Interactivo: reloj GMT-5 en vivo (cada 1s) y latencia que oscila (cada 2.4s).
  * Los valores arrancan como placeholder para que el render SSG y la hidratación
  * coincidan; recién se actualizan en cliente (onMounted), evitando mismatch.
- * El botón ⌘K aún no tiene lógica (command palette → Fase 4).
  */
 import { Search } from 'lucide-vue-next'
 
 const { t } = useI18n()
 const { toggle: toggleCmdk } = useCommandPalette()
+
+const site = useSiteConfig()
+const domain = computed(() => {
+  try {
+    return new URL(site.url ?? '').hostname
+  } catch {
+    return site.url ?? 'dannrodd.com'
+  }
+})
 
 const time = ref('--:--:--')
 const latency = ref('25ms')
@@ -56,7 +64,7 @@ onMounted(() => {
       <div class="flex min-w-0 items-center gap-2 overflow-hidden sm:gap-3">
         <span class="inline-flex shrink-0 items-center gap-2">
           <span class="h-1.5 w-1.5 rounded-full bg-[#10b981] shadow-[0_0_8px_#10b981]" />
-          <span>daniel.rs</span>
+          <span>{{ domain }}</span>
         </span>
 
         <span class="hidden shrink-0 text-white/50 sm:inline">·</span>

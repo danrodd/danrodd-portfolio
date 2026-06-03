@@ -28,7 +28,8 @@
     "decisions": {
       "title": "Decisiones públicas",
       "mark": "04 — decisiones públicas",
-      "intro": "Registros de decisiones arquitectónicas (ADRs). Contenido de ejemplo."
+      "intro": "Registros de decisiones arquitectónicas (ADRs). Contenido de ejemplo.",
+      "comingSoon": "Páginas de detalle próximamente"
     },
     "stack": {
       "title": "Stack",
@@ -110,7 +111,7 @@
     "toggleTheme": "Cambiar tema"
   },
   "colophon": {
-    "text": "Diseñado y construido por mí. Tipografía: Inter Tight · Instrument Serif · JetBrains Mono. Hospedado en mi propio clúster K3s. Sin trackers.",
+    "text": "Diseñado y construido por mí. Tipografía: Inter Tight · Instrument Serif · JetBrains Mono. Desplegado en Netlify (SSG). Sin trackers.",
     "changelogHead": "cambios recientes",
     "endpointsHead": "endpoints",
     "lastUpdated": "última actualización",

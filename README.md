@@ -1,64 +1,67 @@
-# Nuxt Starter Template
+# dannrodd-portfolio
 
-[![Nuxt UI](https://img.shields.io/badge/Made%20with-Nuxt%20UI-00DC82?logo=nuxt&labelColor=020420)](https://ui.nuxt.com)
+Bilingual (ES/EN) personal portfolio for Daniel Rodríguez Solarte — Software Architect & DevSecOps. Built with Nuxt 4 and deployed as a static site on Netlify.
 
-Use this template to get started with [Nuxt UI](https://ui.nuxt.com) quickly.
+## Stack
 
-- [Live demo](https://starter-template.nuxt.dev/)
-- [Documentation](https://ui.nuxt.com/docs/getting-started/installation/nuxt)
-
-<a href="https://starter-template.nuxt.dev/" target="_blank">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://ui.nuxt.com/assets/templates/nuxt/starter-dark.png">
-    <source media="(prefers-color-scheme: light)" srcset="https://ui.nuxt.com/assets/templates/nuxt/starter-light.png">
-    <img alt="Nuxt Starter Template" src="https://ui.nuxt.com/assets/templates/nuxt/starter-light.png" width="830" height="466">
-  </picture>
-</a>
-
-> The starter template for Vue is on https://github.com/nuxt-ui-templates/starter-vue.
-
-## Quick Start
-
-```bash [Terminal]
-npm create nuxt@latest -- -t ui
-```
-
-## Deploy your own
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-name=starter&repository-url=https%3A%2F%2Fgithub.com%2Fnuxt-ui-templates%2Fstarter&demo-image=https%3A%2F%2Fui.nuxt.com%2Fassets%2Ftemplates%2Fnuxt%2Fstarter-dark.png&demo-url=https%3A%2F%2Fstarter-template.nuxt.dev%2F&demo-title=Nuxt%20Starter%20Template&demo-description=A%20minimal%20template%20to%20get%20started%20with%20Nuxt%20UI.)
+| Layer | Technology |
+|---|---|
+| Framework | Nuxt 4 (Vue 3, `<script setup>`) |
+| Styling | Tailwind CSS v4 (Vite plugin, no Nuxt module) |
+| i18n | `@nuxtjs/i18n` — `es` (default) / `en` with `prefix_except_default` |
+| Content | `@nuxt/content` v3 — ADRs and case studies as Markdown |
+| UI components | `shadcn-nuxt` |
+| Icons | `lucide-vue-next` |
+| Linter / formatter | Biome |
+| Git hooks | lefthook (`pre-commit` → Biome, `pre-push` → typecheck, `commit-msg` → Conventional Commits) |
+| Package manager | pnpm |
+| Deployment | Netlify — `nuxt generate` → `.output/public` |
 
 ## Setup
-
-Make sure to install the dependencies:
 
 ```bash
 pnpm install
 ```
 
-## Development Server
+This also runs `nuxt prepare` and installs the lefthook git hooks automatically.
 
-Start the development server on `http://localhost:3000`:
-
-```bash
-pnpm dev
-```
-
-## Production
-
-Build the application for production:
+## Development
 
 ```bash
-pnpm build
+pnpm dev        # http://localhost:3000
 ```
 
-Locally preview production build:
+## Build
 
 ```bash
-pnpm preview
+pnpm generate   # static output → .output/public  (used by Netlify)
+pnpm build      # Nitro server build (SSR mode, not used in production)
+pnpm preview    # preview the generated static output locally
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Lint & format
 
-## Renovate integration
+```bash
+pnpm check      # biome check --write (lint + format, auto-fixes)
+pnpm lint       # biome lint only
+pnpm format     # biome format --write only
+pnpm typecheck  # vue-tsc type check
+```
 
-Install [Renovate GitHub app](https://github.com/apps/renovate/installations/select_target) on your repository and you are good to go.
+## Git hooks (lefthook)
+
+| Hook | What it does |
+|---|---|
+| `pre-commit` | Runs Biome on staged files only; auto-fixes and re-stages. |
+| `pre-push` | Full `nuxt typecheck` — fails the push if types are broken. |
+| `commit-msg` | Validates the message follows [Conventional Commits](https://www.conventionalcommits.org/). |
+
+## Deploy
+
+Netlify reads `netlify.toml`. The build command is `pnpm generate` and the publish directory is `.output/public`. `NODE_VERSION` is pinned to 22 and `NITRO_PRESET=static` is set in the environment.
+
+Canonical domain: **dannrodd.com**
+
+## i18n
+
+Default locale is Spanish (`/`). English lives under `/en`. Locale files are in `i18n/locales/es.json` and `i18n/locales/en.json` — both files must have identical key sets.

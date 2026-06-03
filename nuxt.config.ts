@@ -1,4 +1,7 @@
 import tailwindcss from '@tailwindcss/vite'
+import pkg from './package.json' with { type: 'json' }
+
+const { version } = pkg
 
 // Prefijo de marca para todo lo que el sitio persista en el navegador
 // (localStorage y cookies). Mantiene el storage ordenado e identificable al
@@ -93,6 +96,12 @@ export default defineNuxtConfig({
     name: 'Daniel Rodríguez Solarte',
     url: SITE_URL,
     defaultLocale: 'es'
+  },
+
+  runtimeConfig: {
+    public: {
+      appVersion: version
+    }
   },
 
   compatibilityDate: '2025-01-15'

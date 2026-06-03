@@ -5,6 +5,17 @@
  * del propio sitio. Fecha/versión son placeholder hasta el deploy real.
  */
 const { t } = useI18n()
+const config = useRuntimeConfig()
+const appVersion = computed(() => `v${config.public.appVersion}`)
+
+const site = useSiteConfig()
+const domain = computed(() => {
+  try {
+    return new URL(site.url ?? '').hostname
+  } catch {
+    return site.url ?? 'dannrodd.com'
+  }
+})
 
 const changes = [
   { date: '2026-06-02', textKey: 'colophon.changes.c1' },
@@ -13,11 +24,11 @@ const changes = [
 ]
 
 // Salidas language-neutral (no necesitan traducción).
-const endpoints = [
-  { cmd: 'curl daniel.rs/cv', out: '→ cv.md' },
-  { cmd: 'curl daniel.rs/now', out: '→ status.json' },
-  { cmd: 'curl daniel.rs/adrs', out: '→ adrs.json' }
-]
+const endpoints = computed(() => [
+  { cmd: `curl ${domain.value}/cv`, out: '→ cv.md' },
+  { cmd: `curl ${domain.value}/now`, out: '→ status.json' },
+  { cmd: `curl ${domain.value}/adrs`, out: '→ adrs.json' }
+])
 </script>
 
 <template>
@@ -67,7 +78,7 @@ const endpoints = [
     <p class="mt-[18px] flex flex-wrap items-center gap-3 font-mono text-[0.74rem] text-dim">
       <span>{{ t('colophon.lastUpdated') }} · <span class="text-ink-soft">—</span></span>
       <span>·</span>
-      <span>v0.6.0</span>
+      <span>{{ appVersion }}</span>
       <span>·</span>
       <span>{{ t('colophon.madeWith') }} ♥ {{ t('colophon.from') }}</span>
     </p>

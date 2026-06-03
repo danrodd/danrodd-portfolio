@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { NAV_SECTIONS } from '~/data/nav'
+import { SITE_CONTACT } from '~/data/site'
 
 /**
  * Command palette (⌘K): modal de búsqueda de acciones.
@@ -37,7 +38,7 @@ const commands = computed<Command[]>(() => [
     label: t('cmdk.switchLang'),
     action: () => navigateTo(switchLocalePath(locale.value === 'es' ? 'en' : 'es'))
   },
-  { id: 'email', label: t('cmdk.copyEmail'), action: () => copy('daniel@example.dev') },
+  { id: 'email', label: t('cmdk.copyEmail'), action: () => copy(SITE_CONTACT.email) },
   { id: 'cv', label: t('cmdk.downloadCv'), action: () => window.open('/cv.pdf', '_blank') }
 ])
 

@@ -28,7 +28,8 @@
     "decisions": {
       "title": "Public decisions",
       "mark": "04 — public decisions",
-      "intro": "Architecture decision records (ADRs). Sample content."
+      "intro": "Architecture decision records (ADRs). Sample content.",
+      "comingSoon": "Detail pages coming soon"
     },
     "stack": {
       "title": "Stack",
@@ -110,7 +111,7 @@
     "toggleTheme": "Toggle theme"
   },
   "colophon": {
-    "text": "Designed and built by me. Typography: Inter Tight · Instrument Serif · JetBrains Mono. Hosted on my own K3s cluster. No trackers.",
+    "text": "Designed and built by me. Typography: Inter Tight · Instrument Serif · JetBrains Mono. Deployed on Netlify (SSG). No trackers.",
     "changelogHead": "recent changes",
     "endpointsHead": "endpoints",
     "lastUpdated": "last updated",
