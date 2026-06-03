@@ -39,7 +39,11 @@ const commands = computed<Command[]>(() => [
     action: () => navigateTo(switchLocalePath(locale.value === 'es' ? 'en' : 'es'))
   },
   { id: 'email', label: t('cmdk.copyEmail'), action: () => copy(SITE_CONTACT.email) },
-  { id: 'cv', label: t('cmdk.downloadCv'), action: () => window.open('/cv.pdf', '_blank') }
+  {
+    id: 'cv',
+    label: t('cmdk.downloadCv'),
+    action: () => navigateTo('/cv.pdf', { open: { target: '_blank' } })
+  }
 ])
 
 const query = ref('')

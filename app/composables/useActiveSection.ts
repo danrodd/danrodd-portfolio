@@ -32,8 +32,3 @@ export function useActiveSection(ids: string[]) {
 
   return { active }
 }
-
-/** Lleva el scroll a una sección de forma suave (usado por la nav). */
-export function scrollToSection(id: string) {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-}
