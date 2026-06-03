@@ -74,6 +74,14 @@ body {
     color 180ms ease;
 }
 
+/* Accesibilidad: anillo de foco visible y consistente para navegación por teclado.
+   Solo en :focus-visible (no en click de ratón), con el color de acento. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
 /* Acento serif italic reutilizable (la "firma" del diseño) */
 .ital {
   font-family: var(--font-serif);

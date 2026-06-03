@@ -7,6 +7,10 @@ import tailwindcss from '@tailwindcss/vite'
 // en cookies), así todas las claves comparten el mismo separador.
 const STORAGE_PREFIX = 'dannrodd'
 
+// URL canónica del sitio. Fuente única para site config (canonical/OG),
+// hreflang de i18n y el sitemap. Cambiar aquí al dominio definitivo.
+const SITE_URL = 'https://dannrodd.com'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
@@ -16,6 +20,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n', // ES/EN con rutas (ADR-003)
     '@vueuse/nuxt', // composables: useIntervalFn, useMagicKeys, useClipboard…
     'nuxt-seo-utils', // og:tags, meta, canonical
+    '@nuxtjs/sitemap', // sitemap.xml automático (con hreflang por i18n)
     '@nuxtjs/color-mode' // modo claro/oscuro sin flash en SSG (ADR del sitio)
     // 'shadcn-nuxt'  // requiere `npx shadcn-vue@latest init` antes de activar
   ],
@@ -63,6 +68,7 @@ export default defineNuxtConfig({
 
   i18n: {
     defaultLocale: 'es',
+    baseUrl: SITE_URL, // necesario para hreflang absolutos y canonical por idioma
     strategy: 'prefix_except_default', // ES en "/", EN en "/en"
     locales: [
       { code: 'es', language: 'es-CO', name: 'Español', file: 'es.json' },
@@ -81,10 +87,11 @@ export default defineNuxtConfig({
     '/': { prerender: true }
   },
 
-  // Config de sitio (nuxt-site-config, usada por nuxt-seo-utils para canonical/OG).
+  // Config de sitio (nuxt-site-config, usada por nuxt-seo-utils para canonical/OG
+  // y por @nuxtjs/sitemap).
   site: {
     name: 'Daniel Rodríguez Solarte',
-    url: 'https://daniel.rs',
+    url: SITE_URL,
     defaultLocale: 'es'
   },
 
