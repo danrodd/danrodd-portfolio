@@ -15,7 +15,10 @@ const code = computed(() => props.error?.statusCode ?? 500)
 const is404 = computed(() => code.value === 404)
 const path = computed(() => route?.fullPath || '/')
 
-useHead({ title: `${code.value} · Daniel Rodríguez Solarte` })
+// Title uses only the status code so the app-wide titleTemplate appends the brand.
+// Result: "404 · Daniel Rodríguez Solarte" — no double-branding.
+useHead({ title: () => String(code.value) })
+useSeoMeta({ robots: 'noindex, nofollow' })
 
 const goHome = () => clearError({ redirect: localePath('/') })
 </script>

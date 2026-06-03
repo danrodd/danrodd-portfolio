@@ -23,6 +23,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n', // ES/EN con rutas (ADR-003)
     '@vueuse/nuxt', // composables: useIntervalFn, useMagicKeys, useClipboard…
     'nuxt-seo-utils', // og:tags, meta, canonical
+    'nuxt-og-image', // og:image generation — reads site.url for absolute URLs
     '@nuxtjs/sitemap', // sitemap.xml automático (con hreflang por i18n)
     '@nuxtjs/color-mode' // modo claro/oscuro sin flash en SSG (ADR del sitio)
     // 'shadcn-nuxt'  // requiere `npx shadcn-vue@latest init` antes de activar
