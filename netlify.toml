@@ -1,0 +1,23 @@
+# Config de Netlify. Tratamos el sitio como estático (SSG): build con
+# `nuxt generate` y publicamos el directorio estático resultante.
+# Toda la config vive aquí (build, entorno, cabeceras y plugins) — config en git.
+[build]
+  command = "pnpm generate"
+  publish = ".output/public"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NITRO_PRESET = "static"
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+# Cabeceras de seguridad para todo el sitio. 
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), browsing-topics=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
