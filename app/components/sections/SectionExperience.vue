@@ -49,7 +49,8 @@ const { t } = useI18n()
       rel="noopener"
       class="mt-6 inline-flex items-center gap-1.5 border-b border-ink pb-0.5 font-mono text-sm font-medium text-ink transition-all hover:gap-2.5 hover:border-accent hover:text-accent"
     >
-      {{ t('sections.experience.cta') }} <span>↗</span>
+      {{ t('sections.experience.cta') }} <span aria-hidden="true">↗</span>
+      <span class="sr-only">{{ t('a11y.newTab') }}</span>
     </a>
   </section>
 </template>

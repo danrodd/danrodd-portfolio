@@ -17,6 +17,17 @@ const toggle = (code: string) => {
 }
 // id válido para aria-controls (sin "/").
 const drawerId = (code: string) => `case-${code.replace('/', '-')}`
+
+// Move focus into the drawer when it opens so AT users land inside it.
+const drawerRefs = ref<Record<string, HTMLElement | null>>({})
+const setDrawerRef = (code: string, el: unknown) => {
+  drawerRefs.value[code] = el instanceof HTMLElement ? el : null
+}
+watch(open, async (code) => {
+  if (!code || !import.meta.client) return
+  await nextTick()
+  drawerRefs.value[code]?.focus()
+})
 </script>
 
 <template>
@@ -86,7 +97,11 @@ const drawerId = (code: string) => `case-${code.replace('/', '-')}`
           <div
             v-if="open === c.code"
             :id="drawerId(c.code)"
-            class="case-prose col-span-full mt-2 rounded-[10px] border border-line bg-paper p-5 text-sm"
+            :ref="(el: unknown) => setDrawerRef(c.code, el)"
+            role="region"
+            :aria-label="c.title"
+            tabindex="-1"
+            class="case-prose col-span-full mt-2 rounded-[10px] border border-line bg-paper p-5 text-sm focus:outline-none"
           >
             <ContentRenderer :value="c" />
           </div>
@@ -107,6 +122,13 @@ const drawerId = (code: string) => `case-${code.replace('/', '-')}`
 .drawer-leave-to {
   opacity: 0;
   transform: translateY(-6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drawer-enter-active,
+  .drawer-leave-active {
+    transition-duration: 0ms;
+  }
 }
 
 /* Prosa del cuerpo del caso renderizado desde markdown. */

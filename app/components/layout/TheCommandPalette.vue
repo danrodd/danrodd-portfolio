@@ -83,14 +83,55 @@ onKeyStroke('k', (e) => {
 })
 
 // Al abrir: limpia la búsqueda, resetea selección y enfoca el input.
+// Al cerrar: restaura el foco al elemento que lo tenía antes de abrir.
 const inputEl = ref<HTMLInputElement | null>(null)
-watch(isOpen, async (value) => {
-  if (!value) return
-  query.value = ''
-  selected.value = 0
-  await nextTick()
-  inputEl.value?.focus()
+const panelEl = ref<HTMLDivElement | null>(null)
+const listboxId = 'cmdk-listbox'
+const optionId = (id: string) => `cmdk-opt-${id}`
+const activedescendant = computed(() => {
+  const cmd = filtered.value[selected.value]
+  return cmd ? optionId(cmd.id) : undefined
 })
+
+let triggerEl: HTMLElement | null = null
+
+watch(isOpen, async (value) => {
+  if (value) {
+    if (import.meta.client) triggerEl = document.activeElement as HTMLElement | null
+    query.value = ''
+    selected.value = 0
+    await nextTick()
+    inputEl.value?.focus()
+  } else {
+    await nextTick()
+    triggerEl?.focus()
+    triggerEl = null
+  }
+})
+
+// Focus trap: Tab / Shift+Tab cycle within focusable panel elements.
+const handleFocusTrap = (e: KeyboardEvent) => {
+  if (e.key !== 'Tab' || !panelEl.value) return
+  const focusable = panelEl.value.querySelectorAll<HTMLElement>(
+    'input, button, [href], [tabindex]:not([tabindex="-1"])'
+  )
+  const els = Array.from(focusable)
+  if (!els.length) return
+  const first = els.at(0)
+  const last = els.at(-1)
+  if (!first || !last) return
+  if (e.shiftKey) {
+    if (document.activeElement === first) {
+      e.preventDefault()
+      last.focus()
+    }
+  } else {
+    if (document.activeElement === last) {
+      e.preventDefault()
+      first.focus()
+    }
+  }
+}
 </script>
 
 <template>
@@ -105,10 +146,12 @@ watch(isOpen, async (value) => {
 
         <!-- Panel -->
         <div
+          ref="panelEl"
           role="dialog"
           aria-modal="true"
           :aria-label="t('cmdk.title')"
           class="cmdk-panel relative mt-[12vh] w-full max-w-lg overflow-hidden rounded-2xl border border-line bg-paper shadow-2xl"
+          @keydown="handleFocusTrap"
         >
           <!-- Input -->
           <div class="flex items-center gap-3 border-b border-line px-4 py-3">
@@ -117,10 +160,15 @@ watch(isOpen, async (value) => {
               ref="inputEl"
               v-model="query"
               type="text"
+              role="combobox"
               autocomplete="off"
               spellcheck="false"
               :placeholder="t('cmdk.placeholder')"
               :aria-label="t('cmdk.placeholder')"
+              aria-autocomplete="list"
+              :aria-controls="listboxId"
+              :aria-expanded="filtered.length > 0"
+              :aria-activedescendant="activedescendant"
               class="w-full bg-transparent text-sm text-ink outline-none placeholder:text-dim"
               @keydown.down.prevent="move(1)"
               @keydown.up.prevent="move(-1)"
@@ -135,10 +183,11 @@ watch(isOpen, async (value) => {
           </div>
 
           <!-- Lista -->
-          <ul role="listbox" class="max-h-[50vh] overflow-y-auto p-2">
+          <ul :id="listboxId" role="listbox" class="max-h-[50vh] overflow-y-auto p-2">
             <li
               v-for="(cmd, i) in filtered"
               :key="cmd.id"
+              :id="optionId(cmd.id)"
               role="option"
               :aria-selected="i === selected"
               class="flex cursor-pointer items-center rounded-lg px-3 py-2 text-sm transition-colors"

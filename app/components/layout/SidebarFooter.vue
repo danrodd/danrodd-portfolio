@@ -60,7 +60,7 @@ const { t } = useI18n()
           href="/cv.pdf"
           target="_blank"
           rel="noopener"
-          :aria-label="t('a11y.downloadCv')"
+          :aria-label="`${t('a11y.downloadCv')} ${t('a11y.newTab')}`"
           class="text-muted transition-colors hover:text-accent"
         >
           <FileText :size="20" />

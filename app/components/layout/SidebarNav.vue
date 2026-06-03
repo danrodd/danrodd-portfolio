@@ -49,8 +49,7 @@ const { active } = useActiveSection(NAV_SECTIONS.map((s) => s.id))
     <svg
       viewBox="0 0 280 320"
       class="schema-svg"
-      role="img"
-      :aria-label="t('a11y.navDiagram')"
+      aria-hidden="true"
     >
       <!-- Aristas (raíz → nodos). Se activan junto con su nodo destino. -->
       <g class="schema-paths">
@@ -75,9 +74,10 @@ const { active } = useActiveSection(NAV_SECTIONS.map((s) => s.id))
         :key="node.id"
         class="schema-node"
         :class="{ 'is-active': active === node.id }"
-        role="link"
+        role="button"
         tabindex="0"
         :aria-label="`${node.num} · ${t(`nav.${node.id}`)}`"
+        :aria-current="active === node.id ? 'location' : undefined"
         @click="scrollToSection(node.id)"
         @keydown.enter.prevent="scrollToSection(node.id)"
         @keydown.space.prevent="scrollToSection(node.id)"
@@ -151,8 +151,10 @@ const { active } = useActiveSection(NAV_SECTIONS.map((s) => s.id))
 .schema-node {
   cursor: pointer;
 }
-.schema-node:focus {
-  outline: none;
+.schema-node:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 50%;
 }
 .schema-node circle {
   fill: var(--paper);
