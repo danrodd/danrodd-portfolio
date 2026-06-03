@@ -21,6 +21,9 @@
   /* Relleno suave del acento (hover de nodos del diagrama). color-mix con var(--bg)
      y var(--accent) → se adapta solo al tema sin redefinirlo en .dark. */
   --accent-soft: color-mix(in srgb, var(--accent) 14%, var(--bg));
+  /* Texto de acento sobre superficies accent-soft (tags, pills): un verde más
+     oscuro para alcanzar contraste AA en claro. En oscuro = el acento brillante. */
+  --accent-ink: #03603f;
 }
 
 .dark {
@@ -30,11 +33,12 @@
   --ink: #e8eae5;
   --ink-soft: #c8cac5;
   --muted: #a0a4a0;
-  --dim: #7a7e78;
+  --dim: #909590; /* subido de #7a7e78 para pasar contraste AA en texto pequeño */
   --line: #1f2520;
   --line-strong: #2a302a;
   --accent: #34d399;
   --accent-bright: #6ee7b7;
+  --accent-ink: var(--accent); /* en oscuro el acento ya contrasta sobre accent-soft */
 }
 
 @theme inline {
@@ -56,6 +60,7 @@
   --color-accent: var(--accent);
   --color-accent-bright: var(--accent-bright);
   --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-ink);
 }
 
 html {

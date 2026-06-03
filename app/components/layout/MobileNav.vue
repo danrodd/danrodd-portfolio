@@ -47,7 +47,7 @@ watch(active, async (id) => {
         class="flex-none cursor-pointer whitespace-nowrap rounded-full border px-3.5 py-1.5 font-mono text-[0.72rem] transition-colors"
         :class="
           active === section.id
-            ? 'border-accent bg-accent-soft text-accent'
+            ? 'border-accent bg-accent-soft text-accent-ink'
             : 'border-line text-muted hover:border-line-strong hover:text-ink'
         "
         @click="scrollToSection(section.id)"

@@ -31,7 +31,7 @@ const { data: adrs } = await useAsyncData(`adrs-${locale.value}`, () =>
             {{ adr.title }}
           </span>
           <span
-            class="justify-self-start rounded-full bg-bg-soft px-2 py-0.5 font-mono text-[0.68rem] text-muted transition-colors group-hover:bg-accent-soft group-hover:text-accent sm:justify-self-auto"
+            class="justify-self-start rounded-full bg-bg-soft px-2 py-0.5 font-mono text-[0.68rem] text-muted transition-colors group-hover:bg-accent-soft group-hover:text-accent-ink sm:justify-self-auto"
           >
             {{ adr.code }}
           </span>

@@ -34,7 +34,7 @@ const { t } = useI18n()
             <li
               v-for="tag in exp.tags"
               :key="tag"
-              class="rounded-full bg-accent-soft px-2.5 py-0.5 font-mono text-[0.68rem] font-medium text-accent transition-colors group-hover:bg-accent group-hover:text-paper"
+              class="rounded-full bg-accent-soft px-2.5 py-0.5 font-mono text-[0.68rem] font-medium text-accent-ink transition-colors group-hover:bg-accent group-hover:text-paper"
             >
               {{ tag }}
             </li>

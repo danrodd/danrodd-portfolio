@@ -40,14 +40,14 @@ const { t } = useI18n()
           <span class="mt-0.5 text-[1.02rem] font-medium tracking-tight text-[#f0f2ed]">
             {{ item.value }}
           </span>
-          <span v-if="item.metaKey" class="font-mono text-[0.7rem] text-[#f0f2ed]/45">
+          <span v-if="item.metaKey" class="font-mono text-[0.7rem] text-[#f0f2ed]/60">
             {{ item.metaKey ? t(item.metaKey) : '' }}
           </span>
         </article>
       </div>
 
       <div
-        class="mt-4 flex items-center justify-between border-t border-white/10 pt-3.5 font-mono text-[0.7rem] text-[#f0f2ed]/50"
+        class="mt-4 flex items-center justify-between border-t border-white/10 pt-3.5 font-mono text-[0.7rem] text-[#f0f2ed]/60"
       >
         <span class="flex items-center gap-1.5">
           <span class="h-[5px] w-[5px] rounded-full bg-[#34d399]" /> served from pod

@@ -74,7 +74,7 @@ const drawerId = (code: string) => `case-${code.replace('/', '-')}`
             <li
               v-for="tech in c.stack"
               :key="tech"
-              class="rounded-full bg-accent-soft px-2.5 py-0.5 font-mono text-[0.68rem] font-medium text-accent"
+              class="rounded-full bg-accent-soft px-2.5 py-0.5 font-mono text-[0.68rem] font-medium text-accent-ink"
             >
               {{ tech }}
             </li>

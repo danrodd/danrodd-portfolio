@@ -137,7 +137,7 @@ watch(isOpen, async (value) => {
               role="option"
               :aria-selected="i === selected"
               class="flex cursor-pointer items-center rounded-lg px-3 py-2 text-sm transition-colors"
-              :class="i === selected ? 'bg-accent-soft text-accent' : 'text-ink-soft'"
+              :class="i === selected ? 'bg-accent-soft text-accent-ink' : 'text-ink-soft'"
               @click="run(cmd)"
               @mouseenter="selected = i"
             >

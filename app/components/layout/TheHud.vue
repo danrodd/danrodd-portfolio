@@ -59,25 +59,25 @@ onMounted(() => {
           <span>daniel.rs</span>
         </span>
 
-        <span class="hidden shrink-0 text-white/30 sm:inline">·</span>
+        <span class="hidden shrink-0 text-white/50 sm:inline">·</span>
         <span class="hidden shrink-0 sm:inline">
-          <span class="text-white/40">pod</span> portafolio-7d8f
+          <span class="text-white/60">pod</span> portafolio-7d8f
         </span>
 
-        <span class="shrink-0 text-white/30">·</span>
+        <span class="shrink-0 text-white/50">·</span>
         <span class="inline-flex shrink-0 items-center gap-1.5 text-[#10b981]">
           <span class="h-1 w-1 rounded-full bg-[#10b981]" />
           healthy
         </span>
 
-        <span class="hidden shrink-0 text-white/30 sm:inline">·</span>
+        <span class="hidden shrink-0 text-white/50 sm:inline">·</span>
         <span class="hidden shrink-0 sm:inline">
-          <span class="text-white/40">latency</span> <span class="tabular-nums">{{ latency }}</span>
+          <span class="text-white/60">latency</span> <span class="tabular-nums">{{ latency }}</span>
         </span>
 
-        <span class="shrink-0 text-white/30">·</span>
+        <span class="shrink-0 text-white/50">·</span>
         <span class="shrink-0">
-          <span class="text-white/40">GMT-5</span> <span class="tabular-nums">{{ time }}</span>
+          <span class="text-white/60">GMT-5</span> <span class="tabular-nums">{{ time }}</span>
         </span>
       </div>
 

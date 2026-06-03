@@ -40,14 +40,14 @@ const goHome = () => clearError({ redirect: '/' })
       </div>
 
       <div class="space-y-1.5 font-mono text-[0.8rem] leading-relaxed">
-        <p class="truncate text-[#f0f2ed]/50">
+        <p class="truncate text-[#f0f2ed]/60">
           <span class="text-[#34d399]">$</span> GET {{ path }}
         </p>
         <p class="text-[#f0f2ed]">
           HTTP/1.1 <span class="text-[#f87171]">{{ code }}</span>
           {{ is404 ? 'Not Found' : 'Error' }}
         </p>
-        <p class="pt-1 text-[#f0f2ed]/35">
+        <p class="pt-1 text-[#f0f2ed]/55">
           # {{ is404 ? t('error.notFoundText') : t('error.genericText') }}
         </p>
       </div>
