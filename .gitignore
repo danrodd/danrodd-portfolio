@@ -22,3 +22,7 @@ logs
 .env
 .env.*
 !.env.example
+
+# Notas de trabajo locales (no versionar)
+docs/ROADMAP.md
+RESUME_CLAUDE_SESSION.md

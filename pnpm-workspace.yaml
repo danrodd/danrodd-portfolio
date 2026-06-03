@@ -4,6 +4,7 @@ allowBuilds:
   better-sqlite3: true
   core-js: false
   esbuild: false
+  lefthook: true
   sharp: true
   unrs-resolver: false
   vue-demi: false

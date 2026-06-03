@@ -18,6 +18,9 @@
   --line-strong: #cfcec8;
   --accent: #047857;
   --accent-bright: #10b981;
+  /* Relleno suave del acento (hover de nodos del diagrama). color-mix con var(--bg)
+     y var(--accent) → se adapta solo al tema sin redefinirlo en .dark. */
+  --accent-soft: color-mix(in srgb, var(--accent) 14%, var(--bg));
 }
 
 .dark {
@@ -52,6 +55,7 @@
   --color-line-strong: var(--line-strong);
   --color-accent: var(--accent);
   --color-accent-bright: var(--accent-bright);
+  --color-accent-soft: var(--accent-soft);
 }
 
 html {
