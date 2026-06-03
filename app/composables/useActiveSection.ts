@@ -30,15 +30,37 @@ export function useActiveSection(ids: string[]) {
  */
 const _observers = new Map<string, IntersectionObserver>()
 
+// Pending rAF handle per key — used to cancel on disconnect.
+const _rafHandles = new Map<string, number>()
+
 function useObserverOnce(key: string, ids: string[], active: Ref<string>) {
   onMounted(() => {
     if (_observers.has(key)) return
 
     const observer = new IntersectionObserver(
       (entries) => {
+        // Coalesce multiple synchronous entries into one state write per frame.
+        // Any pending rAF for this key is cancelled so only the last batch wins.
+        const pending = _rafHandles.get(key)
+        if (pending !== undefined) cancelAnimationFrame(pending)
+
+        // Snapshot the intersecting ids from this batch.
+        const intersecting: string[] = []
         for (const entry of entries) {
-          if (entry.isIntersecting) active.value = entry.target.id
+          if (entry.isIntersecting) intersecting.push(entry.target.id)
         }
+
+        if (intersecting.length === 0) return
+
+        const handle = requestAnimationFrame(() => {
+          _rafHandles.delete(key)
+          // Write only the last intersecting entry to keep behavior identical
+          // to the original (last writer wins across entries in a batch).
+          const last = intersecting[intersecting.length - 1]
+          if (last !== undefined) active.value = last
+        })
+
+        _rafHandles.set(key, handle)
       },
       { rootMargin: '-40% 0px -50% 0px' }
     )
@@ -52,18 +74,24 @@ function useObserverOnce(key: string, ids: string[], active: Ref<string>) {
   })
 
   onBeforeUnmount(() => {
-    // Solo desconectar cuando no queda ningún componente vivo que use este key.
-    // Como Nuxt no provee un ref-count por useState, usamos un contador manual.
+    // Only disconnect when no live component still uses this key.
+    // Nuxt does not provide a ref-count per useState, so we track it manually.
     const count = (_mountCount.get(key) ?? 0) - 1
     _mountCount.set(key, count)
     if (count <= 0) {
+      // Cancel any pending rAF before disconnecting the observer.
+      const pending = _rafHandles.get(key)
+      if (pending !== undefined) {
+        cancelAnimationFrame(pending)
+        _rafHandles.delete(key)
+      }
       _observers.get(key)?.disconnect()
       _observers.delete(key)
       _mountCount.delete(key)
     }
   })
 
-  // Incrementar contador al montar.
+  // Increment mount counter.
   onMounted(() => {
     _mountCount.set(key, (_mountCount.get(key) ?? 0) + 1)
   })

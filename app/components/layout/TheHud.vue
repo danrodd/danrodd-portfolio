@@ -1,9 +1,9 @@
 <script setup lang="ts">
 /**
  * Franja de telemetría superior.
- * Interactivo: reloj GMT-5 en vivo (cada 1s) y latencia que oscila (cada 2.4s).
- * Los valores arrancan como placeholder para que el render SSG y la hidratación
- * coincidan; recién se actualizan en cliente (onMounted), evitando mismatch.
+ * Los valores de reloj y latencia viven en <HudTelemetry /> para que solo ese
+ * subárbol se re-renderice en cada tick (cada 1s / 2.4s). TheHud solo contiene
+ * el contenido estático: dominio, pod, estado y el disparador del command palette.
  */
 import { Search } from 'lucide-vue-next'
 
@@ -17,39 +17,6 @@ const domain = computed(() => {
   } catch {
     return site.url ?? 'dannrodd.com'
   }
-})
-
-const time = ref('--:--:--')
-const latency = ref('25ms')
-
-const formatBogota = () =>
-  new Intl.DateTimeFormat('en-US', {
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    hour12: false,
-    timeZone: 'America/Bogota'
-  }).format(new Date())
-
-const tickClock = () => {
-  time.value = formatBogota()
-}
-
-const tickLatency = () => {
-  // oscila ~14–27ms alrededor de 23
-  const ms = Math.max(14, Math.round(23 + (Math.random() - 0.5) * 8))
-  latency.value = `${ms}ms`
-}
-
-// immediate:false → no corren en servidor; se activan al montar en cliente
-const clock = useIntervalFn(tickClock, 1000, { immediate: false })
-const lat = useIntervalFn(tickLatency, 2400, { immediate: false })
-
-onMounted(() => {
-  tickClock()
-  tickLatency()
-  clock.resume()
-  lat.resume()
 })
 </script>
 
@@ -79,14 +46,11 @@ onMounted(() => {
         </span>
 
         <span class="hidden shrink-0 text-white/50 sm:inline">·</span>
-        <span class="hidden shrink-0 sm:inline">
-          <span class="text-white/60">latency</span> <span class="tabular-nums">{{ latency }}</span>
-        </span>
 
-        <span class="shrink-0 text-white/50">·</span>
-        <span class="shrink-0">
-          <span class="text-white/60">GMT-5</span> <span class="tabular-nums">{{ time }}</span>
-        </span>
+        <!-- Live clock + latency isolated in child component so only that
+             subtree re-renders on each tick. Hydration-safe: renders
+             placeholder values (--:--:--, 25ms) during SSR/prerender. -->
+        <HudTelemetry />
       </div>
 
       <!-- Disparador del command palette, con aspecto de buscador para que se

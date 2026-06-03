@@ -48,6 +48,8 @@ const { active } = useActiveSection(NAV_SECTIONS.map((s) => s.id))
   >
     <svg
       viewBox="0 0 280 320"
+      width="280"
+      height="320"
       class="schema-svg"
       aria-hidden="true"
     >
