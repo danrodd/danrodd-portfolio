@@ -26,9 +26,7 @@ const goHome = () => clearError({ redirect: localePath('/') })
 <template>
   <div class="flex min-h-screen flex-col items-center justify-center bg-bg px-6 py-16 text-ink">
     <!-- Tarjeta oscura: la "respuesta" del servidor al recurso inexistente -->
-    <div
-      class="relative w-full max-w-md overflow-hidden rounded-2xl border border-[#1c241c] bg-[#0c100c] p-5 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.5)]"
-    >
+    <DarkCard class="w-full max-w-md p-5">
       <div
         class="pointer-events-none absolute -top-1/2 -right-[15%] h-72 w-72 rounded-full"
         style="background: radial-gradient(circle, rgba(16, 185, 129, 0.16) 0%, transparent 65%)"
@@ -54,7 +52,7 @@ const goHome = () => clearError({ redirect: localePath('/') })
           # {{ is404 ? t('error.notFoundText') : t('error.genericText') }}
         </p>
       </div>
-    </div>
+    </DarkCard>
 
     <!-- Invitación a volver -->
     <button

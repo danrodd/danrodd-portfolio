@@ -39,7 +39,7 @@ watch(open, async (code) => {
 
     <ol class="flex flex-col">
       <li
-        v-for="c in cases"
+        v-for="c in (cases ?? [])"
         :key="c.code"
         class="-mx-[22px] grid grid-cols-1 gap-2 rounded-[10px] px-[22px] py-[22px] transition-colors hover:bg-bg-soft sm:grid-cols-[110px_1fr] sm:gap-[22px]"
       >

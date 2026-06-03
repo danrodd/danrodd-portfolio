@@ -10,7 +10,8 @@ const { t } = useI18n()
 
 // Geometría del diagrama (viewBox 280×320): raíz "DR" arriba y 6 nodos en 2
 // filas de 3. Posiciones fijas; el texto se sitúa 27px bajo cada nodo.
-const NODE_POS: Record<string, { cx: number; cy: number }> = {
+// El tipo garantiza que toda id de NAV_SECTIONS tenga una posición definida.
+const NODE_POS: Record<(typeof NAV_SECTIONS)[number]['id'], { cx: number; cy: number }> = {
   about: { cx: 50, cy: 128 },
   experience: { cx: 140, cy: 128 },
   work: { cx: 230, cy: 128 },
@@ -20,11 +21,10 @@ const NODE_POS: Record<string, { cx: number; cy: number }> = {
 }
 
 // Nodos = secciones (id + número) con su posición en el diagrama.
-// El `?? {…}` es un guardia de tipos (toda sección de NAV_SECTIONS tiene posición).
 const nodes = NAV_SECTIONS.map((s) => ({
   id: s.id,
   num: s.num,
-  ...(NODE_POS[s.id] ?? { cx: 0, cy: 0 })
+  ...NODE_POS[s.id]
 }))
 
 // Aristas: raíz → fila 1 (curvas) y fila 1 → fila 2 (rectas).

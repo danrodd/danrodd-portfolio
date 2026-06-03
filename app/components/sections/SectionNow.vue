@@ -20,9 +20,7 @@ const POD_NAME = 'portafolio-dev'
       {{ t('sections.now.intro') }}
     </p>
 
-    <div
-      class="relative overflow-hidden rounded-2xl border border-[#1c241c] bg-[#0c100c] p-[22px] shadow-[0_24px_60px_-30px_rgba(0,0,0,0.5)]"
-    >
+    <DarkCard class="p-[22px]">
       <div class="mb-4 flex items-center justify-between border-b border-white/10 pb-4">
         <span class="font-mono text-[0.8rem] font-medium text-[#e8eae5]">daniel.live · status</span>
         <span class="flex items-center gap-1.5 font-mono text-[0.7rem] text-[#34d399]">
@@ -60,6 +58,6 @@ const POD_NAME = 'portafolio-dev'
         </span>
         <span>—</span>
       </div>
-    </div>
+    </DarkCard>
   </section>
 </template>

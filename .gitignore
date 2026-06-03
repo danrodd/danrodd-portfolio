@@ -25,4 +25,5 @@ logs
 
 # Notas de trabajo locales (no versionar)
 docs/ROADMAP.md
+docs/*.html
 RESUME_CLAUDE_SESSION.md

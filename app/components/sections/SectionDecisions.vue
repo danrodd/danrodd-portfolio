@@ -18,7 +18,7 @@ const { data: adrs } = await useAsyncData(`adrs-${locale.value}`, () =>
     </p>
 
     <ol class="-mx-[14px] flex flex-col">
-      <li v-for="adr in adrs" :key="adr.code" class="border-b border-line last:border-none">
+      <li v-for="adr in (adrs ?? [])" :key="adr.code" class="border-b border-line last:border-none">
         <!-- Detail routes are not yet available; rendered as a non-interactive row.
              Will become a <RouterLink> once ADR detail pages are implemented. -->
         <div

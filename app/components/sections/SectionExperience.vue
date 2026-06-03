@@ -14,8 +14,8 @@ const { t } = useI18n()
 
     <ol class="flex flex-col">
       <li
-        v-for="(exp, i) in EXPERIENCE"
-        :key="i"
+        v-for="exp in EXPERIENCE"
+        :key="exp.company"
         class="group -mx-[22px] grid grid-cols-1 gap-2 rounded-[10px] px-[22px] py-[22px] transition-colors hover:bg-bg-soft sm:grid-cols-[110px_1fr] sm:gap-[22px]"
       >
         <div class="pt-1 font-mono text-[0.72rem] font-medium tracking-wide text-muted">
@@ -25,7 +25,16 @@ const { t } = useI18n()
         <div>
           <h3 class="mb-2 text-base font-semibold leading-tight text-ink">
             {{ t(exp.roleKey) }}
-            <span class="ml-1 text-ink transition-colors group-hover:text-accent">
+            <a
+              v-if="exp.companyUrl"
+              :href="exp.companyUrl"
+              target="_blank"
+              rel="noopener"
+              class="ml-1 text-ink transition-colors group-hover:text-accent"
+            >
+              @ {{ exp.company }} ↗<span class="sr-only">{{ t('a11y.newTab') }}</span>
+            </a>
+            <span v-else class="ml-1 text-ink transition-colors group-hover:text-accent">
               @ {{ exp.company }} ↗
             </span>
           </h3>

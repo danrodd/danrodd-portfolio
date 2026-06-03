@@ -24,6 +24,8 @@ export interface ExperienceEntry {
   roleKey: string
   /** Empresa. */
   company: string
+  /** URL pública de la empresa (opcional). Cuando se provee, el nombre se renderiza como enlace. */
+  companyUrl?: string
   /** Clave i18n de la descripción. */
   descKey: string
   /** Tecnologías/tags. */
