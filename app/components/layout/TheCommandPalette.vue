@@ -102,7 +102,7 @@ watch(isOpen, async (value) => {
         <div
           role="dialog"
           aria-modal="true"
-          :aria-label="t('cmdk.placeholder')"
+          :aria-label="t('cmdk.title')"
           class="cmdk-panel relative mt-[12vh] w-full max-w-lg overflow-hidden rounded-2xl border border-line bg-paper shadow-2xl"
         >
           <!-- Input -->

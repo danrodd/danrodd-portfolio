@@ -19,7 +19,7 @@ const { t } = useI18n()
         class="group -mx-[22px] grid grid-cols-1 gap-2 rounded-[10px] px-[22px] py-[22px] transition-colors hover:bg-bg-soft sm:grid-cols-[110px_1fr] sm:gap-[22px]"
       >
         <div class="pt-1 font-mono text-[0.72rem] font-medium tracking-wide text-muted">
-          {{ exp.period }}
+          {{ exp.current ? `${exp.period} — ${t('experience.present')}` : exp.period }}
         </div>
 
         <div>

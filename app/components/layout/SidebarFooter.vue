@@ -6,6 +6,7 @@ import { FileText, Mail } from 'lucide-vue-next'
  * LinkedIn, CV) y los controles de idioma y tema.
  * Los logos de marca son SVG inline (lucide ya no los trae).
  */
+const { t } = useI18n()
 </script>
 
 <template>
@@ -54,7 +55,7 @@ import { FileText, Mail } from 'lucide-vue-next'
           href="/cv.pdf"
           target="_blank"
           rel="noopener"
-          aria-label="Descargar CV (PDF)"
+          :aria-label="t('a11y.downloadCv')"
           class="text-muted transition-colors hover:text-accent"
         >
           <FileText :size="20" />

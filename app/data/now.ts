@@ -4,15 +4,16 @@ import type { NowItem } from '~/types'
  * Estado actual (sección Ahora), como tarjetas de un dashboard.
  * CONTENIDO DE EJEMPLO: los valores son placeholder hasta validar el estado real.
  * La etiqueta (construyendo/operando/…) vive en i18n (labelKey).
+ * El valor principal también vive en i18n (valueKey) para soportar bilingüismo.
  */
 export const NOW: NowItem[] = [
-  { labelKey: 'nowLabels.building', value: 'Proyecto de ejemplo' },
-  { labelKey: 'nowLabels.operating', value: 'Entorno de ejemplo' },
-  { labelKey: 'nowLabels.studying', value: 'Programa de ejemplo' },
-  { labelKey: 'nowLabels.reading', value: 'Lectura de ejemplo' },
+  { labelKey: 'nowLabels.building', valueKey: 'nowValues.building' },
+  { labelKey: 'nowLabels.operating', valueKey: 'nowValues.operating' },
+  { labelKey: 'nowLabels.studying', valueKey: 'nowValues.studying' },
+  { labelKey: 'nowLabels.reading', valueKey: 'nowValues.reading' },
   {
     labelKey: 'nowLabels.exploring',
-    value: 'Tema A · Tema B · Tema C',
+    valueKey: 'nowValues.exploring',
     metaKey: 'nowLabels.exploringMeta'
   }
 ]

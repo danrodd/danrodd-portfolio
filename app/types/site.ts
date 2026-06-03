@@ -16,8 +16,10 @@ export interface NavSection {
 
 /** Entrada de la línea de tiempo de experiencia (sección Trayectoria). */
 export interface ExperienceEntry {
-  /** Periodo, ej. "2026 — Hoy". */
+  /** Periodo de inicio, ej. "20XX". Static, language-neutral. */
   period: string
+  /** Si true, el periodo cierra con la palabra localizada "present"/"Hoy". */
+  current?: boolean
   /** Clave i18n del rol. */
   roleKey: string
   /** Empresa. */
@@ -46,8 +48,8 @@ export interface StackLayer {
 export interface NowItem {
   /** Clave i18n de la etiqueta (construyendo/operando/leyendo…). */
   labelKey: string
-  /** Valor principal. */
-  value: string
+  /** Clave i18n del valor principal. */
+  valueKey: string
   /** Clave i18n del meta/subtítulo (opcional). */
   metaKey?: string
 }

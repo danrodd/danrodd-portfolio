@@ -32,7 +32,7 @@ watch(active, async (id) => {
 <template>
   <nav
     class="sticky top-8 z-40 border-b border-line bg-bg/85 backdrop-blur-md lg:hidden"
-    aria-label="Secciones"
+    :aria-label="t('a11y.navSections')"
   >
     <div
       ref="track"

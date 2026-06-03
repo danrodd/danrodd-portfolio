@@ -7,7 +7,8 @@ import type { ExperienceEntry } from '~/types'
  */
 export const EXPERIENCE: ExperienceEntry[] = [
   {
-    period: '20XX — Hoy',
+    period: '20XX',
+    current: true,
     roleKey: 'experience.e1.role',
     company: 'Empresa Uno',
     descKey: 'experience.e1.desc',

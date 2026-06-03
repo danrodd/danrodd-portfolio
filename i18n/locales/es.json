@@ -45,17 +45,18 @@
   },
   "experience": {
     "e1": {
-      "role": "Cargo de ejemplo · Especialidad",
-      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "role": "Cargo de ejemplo · Especialidad"
     },
     "e2": {
-      "role": "Cargo de ejemplo · Especialidad",
-      "desc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure."
+      "desc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure.",
+      "role": "Cargo de ejemplo · Especialidad"
     },
     "e3": {
-      "role": "Cargo de ejemplo · Especialidad",
-      "desc": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat."
-    }
+      "desc": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat.",
+      "role": "Cargo de ejemplo · Especialidad"
+    },
+    "present": "Hoy"
   },
   "verbs": {
     "develop": "desarrollo",
@@ -66,11 +67,18 @@
   },
   "nowLabels": {
     "building": "construyendo",
-    "operating": "operando",
-    "studying": "estudiando",
-    "reading": "leyendo",
     "exploring": "explorando",
-    "exploringMeta": "contenido de ejemplo"
+    "exploringMeta": "contenido de ejemplo",
+    "operating": "operando",
+    "reading": "leyendo",
+    "studying": "estudiando"
+  },
+  "nowValues": {
+    "building": "Proyecto de ejemplo",
+    "exploring": "Tema A · Tema B · Tema C",
+    "operating": "Entorno de ejemplo",
+    "reading": "Lectura de ejemplo",
+    "studying": "Programa de ejemplo"
   },
   "error": {
     "notFound": "Página no encontrada",
@@ -80,17 +88,26 @@
     "home": "volver al inicio",
     "explore": "o salta a una sección"
   },
+  "a11y": {
+    "downloadCv": "Descargar CV (PDF)",
+    "navDiagram": "Diagrama de secciones del sitio",
+    "navSections": "Secciones del sitio",
+    "skipToContent": "Saltar al contenido",
+    "switchLang": "Cambiar idioma a {lang}",
+    "toggleTheme": "Cambiar tema"
+  },
   "cmdk": {
-    "search": "Buscar",
-    "placeholder": "Buscar sección o acción…",
-    "toggleTheme": "Cambiar tema",
-    "switchLang": "Cambiar idioma",
+    "close": "cerrar",
     "copyEmail": "Copiar email",
     "downloadCv": "Descargar CV",
     "empty": "Sin resultados",
     "navigate": "navegar",
+    "placeholder": "Buscar sección o acción…",
     "run": "ejecutar",
-    "close": "cerrar"
+    "search": "Buscar",
+    "switchLang": "Cambiar idioma",
+    "title": "Paleta de comandos",
+    "toggleTheme": "Cambiar tema"
   },
   "colophon": {
     "text": "Diseñado y construido por mí. Tipografía: Inter Tight · Instrument Serif · JetBrains Mono. Hospedado en mi propio clúster K3s. Sin trackers.",

@@ -45,17 +45,18 @@
   },
   "experience": {
     "e1": {
-      "role": "Sample role · Specialty",
-      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "role": "Sample role · Specialty"
     },
     "e2": {
-      "role": "Sample role · Specialty",
-      "desc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure."
+      "desc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure.",
+      "role": "Sample role · Specialty"
     },
     "e3": {
-      "role": "Sample role · Specialty",
-      "desc": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat."
-    }
+      "desc": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat.",
+      "role": "Sample role · Specialty"
+    },
+    "present": "Present"
   },
   "verbs": {
     "develop": "develop",
@@ -66,11 +67,18 @@
   },
   "nowLabels": {
     "building": "building",
-    "operating": "operating",
-    "studying": "studying",
-    "reading": "reading",
     "exploring": "exploring",
-    "exploringMeta": "sample content"
+    "exploringMeta": "sample content",
+    "operating": "operating",
+    "reading": "reading",
+    "studying": "studying"
+  },
+  "nowValues": {
+    "building": "Sample project",
+    "exploring": "Topic A · Topic B · Topic C",
+    "operating": "Sample environment",
+    "reading": "Sample reading",
+    "studying": "Sample program"
   },
   "error": {
     "notFound": "Page not found",
@@ -80,17 +88,26 @@
     "home": "back to home",
     "explore": "or jump to a section"
   },
+  "a11y": {
+    "downloadCv": "Download CV (PDF)",
+    "navDiagram": "Site sections diagram",
+    "navSections": "Site sections",
+    "skipToContent": "Skip to content",
+    "switchLang": "Switch language to {lang}",
+    "toggleTheme": "Toggle theme"
+  },
   "cmdk": {
-    "search": "Search",
-    "placeholder": "Search a section or action…",
-    "toggleTheme": "Toggle theme",
-    "switchLang": "Switch language",
+    "close": "close",
     "copyEmail": "Copy email",
     "downloadCv": "Download CV",
     "empty": "No results",
     "navigate": "navigate",
+    "placeholder": "Search a section or action…",
     "run": "run",
-    "close": "close"
+    "search": "Search",
+    "switchLang": "Switch language",
+    "title": "Command palette",
+    "toggleTheme": "Toggle theme"
   },
   "colophon": {
     "text": "Designed and built by me. Typography: Inter Tight · Instrument Serif · JetBrains Mono. Hosted on my own K3s cluster. No trackers.",

@@ -8,6 +8,7 @@ import { Moon, Sun } from 'lucide-vue-next'
  * inyecta el script anti-flash en <head>, así que no hace falta nada extra para
  * evitar el parpadeo en la primera carga SSG.
  */
+const { t } = useI18n()
 const colorMode = useColorMode()
 
 const toggle = () => {
@@ -18,7 +19,7 @@ const toggle = () => {
 <template>
   <button
     type="button"
-    aria-label="Cambiar tema"
+    :aria-label="t('a11y.toggleTheme')"
     class="cursor-pointer inline-flex h-8 w-8 items-center justify-center rounded-full border border-line text-muted transition-colors hover:border-line-strong hover:text-ink"
     @click="toggle"
   >

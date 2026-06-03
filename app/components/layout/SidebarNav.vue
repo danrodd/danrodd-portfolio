@@ -44,13 +44,13 @@ const { active } = useActiveSection(NAV_SECTIONS.map((s) => s.id))
 <template>
   <nav
     class="schema mt-8 hidden flex-1 items-start justify-center lg:flex"
-    aria-label="Secciones del sitio"
+    :aria-label="t('a11y.navSections')"
   >
     <svg
       viewBox="0 0 280 320"
       class="schema-svg"
       role="img"
-      aria-label="Diagrama de secciones del sitio"
+      :aria-label="t('a11y.navDiagram')"
     >
       <!-- Aristas (raíz → nodos). Se activan junto con su nodo destino. -->
       <g class="schema-paths">

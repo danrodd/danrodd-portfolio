@@ -6,6 +6,11 @@ import { NOW } from '~/data/now'
  * "panel de estado" deliberadamente dark). Valores placeholder en data/now.ts.
  */
 const { t } = useI18n()
+
+// Pod name constant — keep in sync with TheHud.vue pod label.
+// "live" / "served from pod" are intentionally English terminal-flavored labels
+// (language-neutral by design; not subject to i18n).
+const POD_NAME = 'portafolio-dev'
 </script>
 
 <template>
@@ -28,7 +33,7 @@ const { t } = useI18n()
       <div class="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
         <article
           v-for="(item, i) in NOW"
-          :key="i"
+          :key="item.labelKey"
           class="flex flex-col gap-1 rounded-xl border border-white/[0.06] bg-white/[0.035] p-4 transition-colors hover:border-[#34d399]/30 hover:bg-white/[0.06]"
           :class="i === NOW.length - 1 && 'sm:col-span-2'"
         >
@@ -38,10 +43,10 @@ const { t } = useI18n()
             {{ t(item.labelKey) }}
           </span>
           <span class="mt-0.5 text-[1.02rem] font-medium tracking-tight text-[#f0f2ed]">
-            {{ item.value }}
+            {{ t(item.valueKey) }}
           </span>
           <span v-if="item.metaKey" class="font-mono text-[0.7rem] text-[#f0f2ed]/60">
-            {{ item.metaKey ? t(item.metaKey) : '' }}
+            {{ t(item.metaKey) }}
           </span>
         </article>
       </div>
@@ -51,7 +56,7 @@ const { t } = useI18n()
       >
         <span class="flex items-center gap-1.5">
           <span class="h-[5px] w-[5px] rounded-full bg-[#34d399]" /> served from pod
-          <strong class="font-medium text-[#f0f2ed]">portafolio-dev</strong>
+          <strong class="font-medium text-[#f0f2ed]">{{ POD_NAME }}</strong>
         </span>
         <span>—</span>
       </div>

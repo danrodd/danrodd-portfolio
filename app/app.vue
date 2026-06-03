@@ -8,24 +8,26 @@ const i18nHead = useLocaleHead({ dir: true, lang: true, seo: true })
 useHead(() => i18nHead.value)
 
 // Resto del head: título, favicon y JSON-LD (Person) para datos estructurados.
+// jobTitle is reactive via t('role') so structured data matches the active locale.
 useHead({
   titleTemplate: (titleChunk) => titleChunk ?? 'Daniel Rodríguez Solarte',
   link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
   script: [
     {
       type: 'application/ld+json',
-      innerHTML: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Person',
-        name: site.name,
-        url: site.url,
-        jobTitle: 'Software Architect · DevSecOps · Tech Lead',
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: 'Bogotá',
-          addressCountry: 'CO'
-        }
-      })
+      innerHTML: () =>
+        JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Person',
+          name: site.name,
+          url: site.url,
+          jobTitle: t('role'),
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Bogotá',
+            addressCountry: 'CO'
+          }
+        })
     }
   ]
 })

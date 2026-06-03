@@ -17,7 +17,7 @@ const path = computed(() => route?.fullPath || '/')
 
 useHead({ title: `${code.value} · Daniel Rodríguez Solarte` })
 
-const goHome = () => clearError({ redirect: '/' })
+const goHome = () => clearError({ redirect: localePath('/') })
 </script>
 
 <template>
@@ -68,7 +68,7 @@ const goHome = () => clearError({ redirect: '/' })
     </p>
     <nav
       class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2"
-      aria-label="Secciones"
+      :aria-label="t('a11y.navSections')"
     >
       <NuxtLink
         v-for="section in NAV_SECTIONS"
