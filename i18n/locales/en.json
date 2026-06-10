@@ -23,12 +23,12 @@
     "work": {
       "title": "Selected work",
       "mark": "03 — selected work",
-      "intro": "Sample content — real cases will be published once validated."
+      "intro": "A selection of systems I designed, built or optimized — most at MetrixAL, plus my current work at TDH."
     },
     "decisions": {
       "title": "Public decisions",
       "mark": "04 — public decisions",
-      "intro": "Architecture decision records (ADRs). Sample content."
+      "intro": "Architecture decision records (ADRs) of this very site: context, alternatives and consequences. What I practice, I document."
     },
     "stack": {
       "title": "Stack",
@@ -44,17 +44,17 @@
     }
   },
   "experience": {
-    "e1": {
-      "role": "Sample role · Specialty",
-      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    "tdh": {
+      "role": "Fullstack Developer",
+      "desc": "I develop and maintain turnos.tdh.com.co (.NET Core + Vue.js); I propose end-to-end solutions and drive continuous improvement of the systems."
     },
-    "e2": {
-      "role": "Sample role · Specialty",
-      "desc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure."
+    "metrix": {
+      "role": "Backend Developer · technical lead on projects",
+      "desc": "Nearly two years building and maintaining systems: Spring Boot microservices (Kafka, Redis), ETL processes, multi-tenant migration with Database-per-Tenant, DevSecOps infrastructure (Gitea CI/CD, Docker, MinIO, AWS) and a high-availability K3s cluster aligned to ISO 27001."
     },
-    "e3": {
-      "role": "Sample role · Specialty",
-      "desc": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat."
+    "lian": {
+      "role": "Junior Backend Developer",
+      "desc": "My first role: development with Laravel and Vue.js, building an e-commerce and supporting internal systems."
     }
   },
   "verbs": {
@@ -66,11 +66,13 @@
   },
   "nowLabels": {
     "building": "building",
-    "operating": "operating",
+    "buildingMeta": "at Transportes del Huila",
     "studying": "studying",
-    "reading": "reading",
+    "studyingMeta": "Politécnico Grancolombiano",
     "exploring": "exploring",
-    "exploringMeta": "sample content"
+    "exploringMeta": "building on my Vue foundation",
+    "improving": "improving",
+    "improvingMeta": "solid reading, conversational in progress"
   },
   "error": {
     "notFound": "Page not found",
@@ -92,17 +94,13 @@
     "run": "run",
     "close": "close"
   },
+  "contact": {
+    "whatsapp": "Hi Daniel 👋, I came from your portfolio and I'd like to chat with you."
+  },
   "colophon": {
-    "text": "Designed and built by me. Typography: Inter Tight · Instrument Serif · JetBrains Mono. Hosted on my own K3s cluster. No trackers.",
-    "changelogHead": "recent changes",
     "endpointsHead": "endpoints",
     "lastUpdated": "last updated",
     "madeWith": "made with",
-    "from": "from Bogotá",
-    "changes": {
-      "c1": "ported the section structure (sample content)",
-      "c2": "sidebar navigation as a diagram",
-      "c3": "flash-free light/dark mode via the color-mode module"
-    }
+    "from": "from Neiva"
   }
 }

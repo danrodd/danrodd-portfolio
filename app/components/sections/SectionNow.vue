@@ -18,13 +18,6 @@ const { t } = useI18n()
     <div
       class="relative overflow-hidden rounded-2xl border border-[#1c241c] bg-[#0c100c] p-[22px] shadow-[0_24px_60px_-30px_rgba(0,0,0,0.5)]"
     >
-      <div class="mb-4 flex items-center justify-between border-b border-white/10 pb-4">
-        <span class="font-mono text-[0.8rem] font-medium text-[#e8eae5]">daniel.live · status</span>
-        <span class="flex items-center gap-1.5 font-mono text-[0.7rem] text-[#34d399]">
-          <span class="h-1.5 w-1.5 rounded-full bg-[#34d399] shadow-[0_0_8px_#34d399]" /> live
-        </span>
-      </div>
-
       <div class="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
         <article
           v-for="(item, i) in NOW"
@@ -46,15 +39,6 @@ const { t } = useI18n()
         </article>
       </div>
 
-      <div
-        class="mt-4 flex items-center justify-between border-t border-white/10 pt-3.5 font-mono text-[0.7rem] text-[#f0f2ed]/60"
-      >
-        <span class="flex items-center gap-1.5">
-          <span class="h-[5px] w-[5px] rounded-full bg-[#34d399]" /> served from pod
-          <strong class="font-medium text-[#f0f2ed]">portafolio-dev</strong>
-        </span>
-        <span>—</span>
-      </div>
     </div>
   </section>
 </template>

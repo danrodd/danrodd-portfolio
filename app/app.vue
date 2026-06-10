@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { CONTACT } from '~/data/contact'
+
 const { t } = useI18n()
 const site = useSiteConfig()
 
@@ -10,7 +12,11 @@ useHead(() => i18nHead.value)
 // Resto del head: título, favicon y JSON-LD (Person) para datos estructurados.
 useHead({
   titleTemplate: (titleChunk) => titleChunk ?? 'Daniel Rodríguez Solarte',
-  link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
+  link: [
+    { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+    // Pista para agentes/LLMs: resumen machine-readable del perfil (convención llms.txt)
+    { rel: 'alternate', type: 'text/markdown', href: '/llms.txt', title: 'llms.txt' }
+  ],
   script: [
     {
       type: 'application/ld+json',
@@ -19,10 +25,12 @@ useHead({
         '@type': 'Person',
         name: site.name,
         url: site.url,
-        jobTitle: 'Software Architect · DevSecOps · Tech Lead',
+        jobTitle: 'Fullstack Software Developer',
+        email: CONTACT.email,
+        sameAs: [CONTACT.github, CONTACT.linkedin],
         address: {
           '@type': 'PostalAddress',
-          addressLocality: 'Bogotá',
+          addressLocality: 'Neiva',
           addressCountry: 'CO'
         }
       })

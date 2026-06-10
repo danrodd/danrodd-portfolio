@@ -10,7 +10,7 @@ export const STACK: StackLayer[] = [
     idx: 'L1',
     name: 'Frontend',
     verbKey: 'verbs.develop',
-    techs: ['Vue', 'Nuxt', 'Tailwind', 'TanStack', 'SSR']
+    techs: ['Vue', 'Nuxt', 'Next', 'Astro', 'Tailwind', 'TanStack', 'SSR']
   },
   {
     idx: 'L2',

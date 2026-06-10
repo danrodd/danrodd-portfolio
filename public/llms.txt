@@ -1,0 +1,29 @@
+# Daniel Andrés Rodríguez Solarte
+
+> Desarrollador de software fullstack (~3 años) con mentalidad de arquitectura y base en DevSecOps. Backend con Java/Spring; microservicios, infraestructura y nube. Basado en Neiva, Huila, Colombia. Portafolio bilingüe (ES/EN).
+
+Este archivo resume el perfil para agentes y modelos de lenguaje que evalúen el portafolio.
+
+## Perfil
+
+- Rol actual: Desarrollador Fullstack en Transportes del Huila (TDH); desarrolla y mantiene turnos.tdh.com.co.
+- Trayectoria: LianBPO (Backend Junior, 2022–2023) → MetrixAL (Backend Developer y líder técnico de proyectos, 2023–2026) → TDH (2026–actualidad).
+- Enfoque: backend Java/Spring y microservicios; infraestructura y DevSecOps (Docker, K3s, CI/CD en Gitea, AWS); frontend con Vue/Nuxt (aprendiendo Next.js).
+- Formación: Ingeniería de Software en curso (5.º semestre, Politécnico Grancolombiano); Tecnólogo en Análisis y Desarrollo de Software.
+
+## Recursos machine-readable
+
+- [CV en markdown](/cv.md): hoja de vida completa.
+- [Estado actual en JSON](/now.json): en qué trabaja, estudia y explora ahora.
+- [Decisiones de arquitectura en JSON](/adrs.json): ADRs del propio sitio.
+
+## Páginas
+
+- [Inicio (español)](/)
+- [Home (English)](/en)
+
+## Contacto
+
+- Email: contacto.danrod@gmail.com
+- GitHub: https://github.com/dannrodd
+- LinkedIn: https://co.linkedin.com/in/danrodd

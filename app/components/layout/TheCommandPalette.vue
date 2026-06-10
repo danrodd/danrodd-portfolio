@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { CONTACT } from '~/data/contact'
 import { NAV_SECTIONS } from '~/data/nav'
 
 /**
@@ -37,8 +38,8 @@ const commands = computed<Command[]>(() => [
     label: t('cmdk.switchLang'),
     action: () => navigateTo(switchLocalePath(locale.value === 'es' ? 'en' : 'es'))
   },
-  { id: 'email', label: t('cmdk.copyEmail'), action: () => copy('daniel@example.dev') },
-  { id: 'cv', label: t('cmdk.downloadCv'), action: () => window.open('/cv.pdf', '_blank') }
+  { id: 'email', label: t('cmdk.copyEmail'), action: () => copy(CONTACT.email) },
+  { id: 'cv', label: t('cmdk.downloadCv'), action: () => window.open(CONTACT.cv, '_blank') }
 ])
 
 const query = ref('')
