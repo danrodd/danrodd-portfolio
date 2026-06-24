@@ -36,7 +36,7 @@ const POD_NAME = 'portafolio-dev'
             {{ t(item.labelKey) }}
           </span>
           <span class="mt-0.5 text-[1.02rem] font-medium tracking-tight text-[#f0f2ed]">
-            {{ t(item.valueKey) }}
+            {{ item.value }}
           </span>
           <span v-if="item.metaKey" class="font-mono text-[0.7rem] text-[#f0f2ed]/60">
             {{ t(item.metaKey) }}

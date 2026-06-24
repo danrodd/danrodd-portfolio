@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { CONTACT } from '~/data/contact'
 import { NAV_SECTIONS } from '~/data/nav'
-import { SITE_CONTACT } from '~/data/site'
 
 /**
  * Command palette (⌘K): modal de búsqueda de acciones.

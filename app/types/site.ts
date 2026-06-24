@@ -50,8 +50,8 @@ export interface StackLayer {
 export interface NowItem {
   /** Clave i18n de la etiqueta (construyendo/operando/leyendo…). */
   labelKey: string
-  /** Clave i18n del valor principal. */
-  valueKey: string
+  /** Valor principal. */
+  value: string
   /** Clave i18n del meta/subtítulo (opcional). */
   metaKey?: string
 }
