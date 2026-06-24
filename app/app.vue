@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SITE_CONTACT } from '~/data/site'
+import { CONTACT } from '~/data/contact'
 
 const { t } = useI18n()
 const site = useSiteConfig()
@@ -13,26 +13,29 @@ useHead(() => i18nHead.value)
 // ("Page · Daniel Rodríguez Solarte"). The home page sets title: null so the
 // template falls back to the bare brand name — no double-branding.
 useHead({
-  titleTemplate: (titleChunk) =>
-    titleChunk ? `${titleChunk} · Daniel Rodríguez Solarte` : 'Daniel Rodríguez Solarte',
-  link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
+  titleTemplate: (titleChunk) => titleChunk ?? 'Daniel Rodríguez Solarte',
+  link: [
+    { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+    // Pista para agentes/LLMs: resumen machine-readable del perfil (convención llms.txt)
+    { rel: 'alternate', type: 'text/markdown', href: '/llms.txt', title: 'llms.txt' }
+  ],
   script: [
     {
       type: 'application/ld+json',
-      innerHTML: () =>
-        JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'Person',
-          name: site.name,
-          url: site.url,
-          jobTitle: t('role'),
-          sameAs: [SITE_CONTACT.github, SITE_CONTACT.linkedin],
-          address: {
-            '@type': 'PostalAddress',
-            addressLocality: 'Bogotá',
-            addressCountry: 'CO'
-          }
-        })
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: site.name,
+        url: site.url,
+        jobTitle: 'Fullstack Software Developer',
+        email: CONTACT.email,
+        sameAs: [CONTACT.github, CONTACT.linkedin],
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Neiva',
+          addressCountry: 'CO'
+        }
+      })
     }
   ]
 })

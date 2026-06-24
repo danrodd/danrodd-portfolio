@@ -30,13 +30,8 @@ const domain = computed(() => {
       <!-- Grupo de telemetría: min-w-0 + overflow-hidden para recortar antes que superponer -->
       <div class="flex min-w-0 items-center gap-2 overflow-hidden sm:gap-3">
         <span class="inline-flex shrink-0 items-center gap-2">
-          <span class="hud-dot h-1.5 w-1.5 rounded-full" />
-          <span>{{ domain }}</span>
-        </span>
-
-        <span class="hidden shrink-0 text-white/50 sm:inline">·</span>
-        <span class="hidden shrink-0 sm:inline">
-          <span class="text-white/60">pod</span> portafolio-7d8f
+          <span class="h-1.5 w-1.5 rounded-full bg-[#10b981] shadow-[0_0_8px_#10b981]" />
+          <span>dannrodd.com</span>
         </span>
 
         <span class="shrink-0 text-white/50">·</span>

@@ -1,13 +1,18 @@
 <script setup lang="ts">
 import { FileText, Mail } from 'lucide-vue-next'
-import { SITE_CONTACT } from '~/data/site'
+import { CONTACT } from '~/data/contact'
 
 /**
  * Pie del sidebar: separador + fila de social (email, WhatsApp, GitHub,
- * LinkedIn, CV) y los controles de idioma y tema.
+ * LinkedIn, CV) y los controles de idioma y tema. Datos en data/contact.ts.
  * Los logos de marca son SVG inline (lucide ya no los trae).
  */
 const { t } = useI18n()
+
+// WhatsApp con mensaje prellenado bilingüe (?text=…), codificado para la URL.
+const whatsappUrl = computed(
+  () => `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(t('contact.whatsapp'))}`
+)
 </script>
 
 <template>
@@ -15,7 +20,7 @@ const { t } = useI18n()
     <ul class="flex items-center gap-4">
       <li>
         <a
-          :href="`mailto:${SITE_CONTACT.email}`"
+          :href="`mailto:${CONTACT.email}`"
           aria-label="Email"
           class="text-muted transition-colors hover:text-accent"
         >
@@ -24,7 +29,7 @@ const { t } = useI18n()
       </li>
       <li>
         <a
-          :href="SITE_CONTACT.whatsapp"
+          :href="whatsappUrl"
           target="_blank"
           rel="noopener"
           aria-label="WhatsApp"
@@ -35,7 +40,7 @@ const { t } = useI18n()
       </li>
       <li>
         <a
-          :href="SITE_CONTACT.github"
+          :href="CONTACT.github"
           target="_blank"
           rel="noopener"
           aria-label="GitHub"
@@ -46,7 +51,7 @@ const { t } = useI18n()
       </li>
       <li>
         <a
-          :href="SITE_CONTACT.linkedin"
+          :href="CONTACT.linkedin"
           target="_blank"
           rel="noopener"
           aria-label="LinkedIn"
@@ -57,10 +62,10 @@ const { t } = useI18n()
       </li>
       <li>
         <a
-          href="/cv.pdf"
+          :href="CONTACT.cv"
           target="_blank"
           rel="noopener"
-          :aria-label="`${t('a11y.downloadCv')} ${t('a11y.newTab')}`"
+          aria-label="Ver CV"
           class="text-muted transition-colors hover:text-accent"
         >
           <FileText :size="20" />

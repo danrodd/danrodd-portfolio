@@ -32,9 +32,10 @@ const EDGES = [
   { target: 'about', d: 'M140,42 Q90,80 50,120' },
   { target: 'experience', d: 'M140,42 L140,120' },
   { target: 'work', d: 'M140,42 Q190,80 230,120' },
-  { target: 'decisions', d: 'M50,135 L50,220' },
-  { target: 'stack', d: 'M140,135 L140,220' },
-  { target: 'now', d: 'M230,135 L230,220' }
+  // Empiezan en y=165 (debajo del texto del nodo de la fila 1) para no cruzarlo.
+  { target: 'decisions', d: 'M50,165 L50,220' },
+  { target: 'stack', d: 'M140,165 L140,220' },
+  { target: 'now', d: 'M230,165 L230,220' }
 ]
 
 // Scroll-spy: resalta el nodo (y su arista) de la sección visible.

@@ -23,13 +23,12 @@
     "work": {
       "title": "Trabajo seleccionado",
       "mark": "03 — trabajo seleccionado",
-      "intro": "Contenido de ejemplo — los casos reales se publicarán tras su validación."
+      "intro": "Una selección de sistemas que diseñé, construí u optimicé — la mayoría en MetrixAL, más mi trabajo actual en TDH."
     },
     "decisions": {
       "title": "Decisiones públicas",
       "mark": "04 — decisiones públicas",
-      "intro": "Registros de decisiones arquitectónicas (ADRs). Contenido de ejemplo.",
-      "comingSoon": "Páginas de detalle próximamente"
+      "intro": "Decisiones de arquitectura (ADRs) de este mismo sitio: contexto, alternativas y consecuencias. Lo que practico, lo documento."
     },
     "stack": {
       "title": "Stack",
@@ -45,19 +44,18 @@
     }
   },
   "experience": {
-    "e1": {
-      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "role": "Cargo de ejemplo · Especialidad"
+    "tdh": {
+      "role": "Desarrollador Fullstack · Programador",
+      "desc": "Desarrollo y mantengo turnos.tdh.com.co (.NET Core + Vue.js); propongo soluciones integrales e impulso la mejora continua de los sistemas."
     },
-    "e2": {
-      "desc": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure.",
-      "role": "Cargo de ejemplo · Especialidad"
+    "metrix": {
+      "role": "Backend Developer · liderazgo técnico de proyectos",
+      "desc": "Casi dos años construyendo y manteniendo sistemas: microservicios en Spring Boot (Kafka, Redis), procesos ETL, migración multi-inquilino con Database-per-Tenant, infraestructura DevSecOps (Gitea CI/CD, Docker, MinIO, AWS) y un clúster K3s en alta disponibilidad alineado a ISO 27001."
     },
-    "e3": {
-      "desc": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat.",
-      "role": "Cargo de ejemplo · Especialidad"
-    },
-    "present": "Hoy"
+    "lian": {
+      "role": "Desarrollador Backend Junior",
+      "desc": "Mi primer rol: desarrollo con Laravel y Vue.js, construcción de un e-commerce y soporte a sistemas internos."
+    }
   },
   "verbs": {
     "develop": "desarrollo",
@@ -67,19 +65,14 @@
     "instrument": "instrumento · atraviesa todas las capas"
   },
   "nowLabels": {
-    "building": "construyendo",
+    "building": "Impulsando",
+    "buildingMeta": "en Transportes del Huila",
+    "studying": "estudiando",
+    "studyingMeta": "Politécnico Grancolombiano",
     "exploring": "explorando",
-    "exploringMeta": "contenido de ejemplo",
-    "operating": "operando",
-    "reading": "leyendo",
-    "studying": "estudiando"
-  },
-  "nowValues": {
-    "building": "Proyecto de ejemplo",
-    "exploring": "Tema A · Tema B · Tema C",
-    "operating": "Entorno de ejemplo",
-    "reading": "Lectura de ejemplo",
-    "studying": "Programa de ejemplo"
+    "exploringMeta": "apoyándome en mi base de Vue",
+    "improving": "mejorando",
+    "improvingMeta": "lectura sólida, conversacional en progreso"
   },
   "error": {
     "notFound": "Página no encontrada",
@@ -111,17 +104,13 @@
     "title": "Paleta de comandos",
     "toggleTheme": "Cambiar tema"
   },
+  "contact": {
+    "whatsapp": "Hola Daniel 👋, llegué desde tu portafolio y me gustaría conversar contigo."
+  },
   "colophon": {
-    "text": "Diseñado y construido por mí. Tipografía: Inter Tight · Instrument Serif · JetBrains Mono. Desplegado en Netlify (SSG). Sin trackers.",
-    "changelogHead": "cambios recientes",
     "endpointsHead": "endpoints",
     "lastUpdated": "última actualización",
     "madeWith": "hecho con",
-    "from": "desde Bogotá",
-    "changes": {
-      "c1": "portada la estructura de secciones (contenido de ejemplo)",
-      "c2": "navegación del sidebar como diagrama",
-      "c3": "modo claro/oscuro sin flash con el módulo color-mode"
-    }
+    "from": "desde Neiva"
   }
 }
