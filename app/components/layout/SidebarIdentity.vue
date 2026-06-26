@@ -8,15 +8,20 @@ const { t } = useI18n()
 
 <template>
   <div>
-    <NuxtImg
+    <!-- Avatar = elemento LCP. Es un .webp estático de 144px: servirlo directo
+         (sin pasar por el proxy de imágenes) lo hace descubrible en el HTML,
+         permite fetchpriority=high y evita un posible mismatch de hidratación
+         de @nuxt/image con provider en SSG. -->
+    <img
       src="/avatar.webp"
       alt="Daniel Andrés Rodríguez"
       width="144"
       height="144"
-      sizes="144px"
       loading="eager"
+      fetchpriority="high"
+      decoding="async"
       class="mb-5 h-[144px] w-[144px] rounded-[28px] object-cover ring-1 ring-line"
-    />
+    >
 
     <h1 class="text-[2rem] font-bold leading-none tracking-tight text-ink">
       Daniel Andrés<br>

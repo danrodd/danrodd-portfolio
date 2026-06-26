@@ -52,10 +52,12 @@ const { active } = useActiveSection(NAV_SECTIONS.map((s) => s.id))
       width="280"
       height="320"
       class="schema-svg"
-      aria-hidden="true"
+      role="presentation"
     >
-      <!-- Aristas (raíz → nodos). Se activan junto con su nodo destino. -->
-      <g class="schema-paths">
+      <!-- Aristas (raíz → nodos). Se activan junto con su nodo destino.
+           Decorativas: ocultas a tecnologías de asistencia (los nodos
+           navegables de abajo sí quedan expuestos con role=button + aria-label). -->
+      <g class="schema-paths" aria-hidden="true">
         <path
           v-for="edge in EDGES"
           :key="edge.target"
@@ -64,8 +66,8 @@ const { active } = useActiveSection(NAV_SECTIONS.map((s) => s.id))
         />
       </g>
 
-      <!-- Raíz: "DR" con anillo pulsante -->
-      <g class="schema-root">
+      <!-- Raíz: "DR" con anillo pulsante (decorativa) -->
+      <g class="schema-root" aria-hidden="true">
         <circle cx="140" cy="42" r="20" class="schema-root-ring" />
         <circle cx="140" cy="42" r="14" />
         <text x="140" y="46" text-anchor="middle">DR</text>

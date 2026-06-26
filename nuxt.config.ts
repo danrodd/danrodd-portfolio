@@ -18,7 +18,6 @@ const SITE_URL = 'https://danrodd.dev'
 export default defineNuxtConfig({
   modules: [
     '@nuxt/content', // ADRs, casos y "now" como markdown versionable
-    '@nuxt/image', // optimización de imágenes (avatar, OG)
     '@nuxt/fonts', // fuentes self-hosted (detecta familias del CSS)
     '@nuxtjs/i18n', // ES/EN con rutas (ADR-003)
     '@vueuse/nuxt', // composables: useIntervalFn, useMagicKeys, useClipboard…
