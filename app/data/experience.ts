@@ -10,10 +10,10 @@ export const EXPERIENCE: ExperienceEntry[] = [
     roleKey: 'experience.tdh.role',
     company: 'Transportes del Huila',
     descKey: 'experience.tdh.desc',
-    tags: ['.NET Core', 'Vue.js', 'Fullstack']
+    tags: ['.NET Core', 'Vue.js', 'Next.js', 'FastAPI', 'SQL Server', 'Fullstack']
   },
   {
-    period: '2023 — 2026',
+    period: '2024 — 2026',
     roleKey: 'experience.metrix.role',
     company: 'MetrixAL',
     descKey: 'experience.metrix.desc',

@@ -23,8 +23,8 @@ export interface SiteContact {
 }
 
 export const SITE_CONTACT: SiteContact = {
-  email: 'TODO@dannrodd.com',
-  github: 'https://github.com/TODO-dannrodd',
-  linkedin: 'https://www.linkedin.com/in/TODO-dannrodd',
-  whatsapp: 'https://wa.me/TODO'
+  email: 'contacto@danrodd.dev',
+  github: 'https://github.com/danrodd',
+  linkedin: 'https://www.linkedin.com/in/danrodd',
+  whatsapp: 'https://wa.me/573012106430'
 } as const

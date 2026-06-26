@@ -16,8 +16,8 @@ const { t } = useI18n()
     </figure>
 
     <h1 class="text-[2rem] font-bold leading-none tracking-tight text-ink">
-      Daniel Rodríguez<br>
-      <span class="ital text-[1.6rem]">Solarte</span>
+      Daniel Andrés<br>
+      <span class="ital text-[1.6rem]">Rodríguez</span>
     </h1>
 
     <p class="mt-4 font-mono text-xs lowercase tracking-wide text-accent">

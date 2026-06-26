@@ -10,10 +10,10 @@ const i18nHead = useLocaleHead({ dir: true, lang: true, seo: true })
 useHead(() => i18nHead.value)
 
 // titleTemplate: child pages that set their own title get the brand appended
-// ("Page · Daniel Rodríguez Solarte"). The home page sets title: null so the
+// ("Page · Daniel Andrés Rodríguez"). The home page sets title: null so the
 // template falls back to the bare brand name — no double-branding.
 useHead({
-  titleTemplate: (titleChunk) => titleChunk ?? 'Daniel Rodríguez Solarte',
+  titleTemplate: (titleChunk) => titleChunk ?? 'Daniel Andrés Rodríguez',
   link: [
     { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
     // Pista para agentes/LLMs: resumen machine-readable del perfil (convención llms.txt)

@@ -23,7 +23,7 @@
     Strict-Transport-Security = "max-age=31536000; includeSubDomains"
 
 # URLs limpias (rewrite 200): /cv, /now, /adrs sirven el archivo real sin extensión.
-# Así `curl dannrodd.com/cv` devuelve el CV y el enlace del colofón funciona.
+# Así `curl danrodd.dev/cv` devuelve el CV y el enlace del colofón funciona.
 [[redirects]]
   from = "/cv"
   to = "/cv.md"

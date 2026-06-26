@@ -11,14 +11,14 @@ const domain = computed(() => {
   try {
     return new URL(site.url ?? '').hostname
   } catch {
-    return site.url ?? 'dannrodd.com'
+    return site.url ?? 'danrodd.dev'
   }
 })
 
 // Endpoint funcional y verificable: apunta directo a /cv.md (el archivo real),
 // así funciona en local, preview y producción sin depender del rewrite de Netlify.
 // Las rutas machine-readable /now.json y /adrs.json se descubren vía /llms.txt.
-const endpoints = [{ cmd: 'curl dannrodd.com/cv.md', out: '→ markdown', href: '/cv.md' }]
+const endpoints = [{ cmd: `curl ${domain.value}/cv.md`, out: '→ markdown', href: '/cv.md' }]
 </script>
 
 <template>

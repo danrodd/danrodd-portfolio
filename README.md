@@ -1,6 +1,6 @@
 # dannrodd-portfolio
 
-Bilingual (ES/EN) personal portfolio for Daniel Rodríguez Solarte — Software Architect & DevSecOps. Built with Nuxt 4 and deployed as a static site on Netlify.
+Bilingual (ES/EN) personal portfolio for Daniel Andrés Rodríguez — Software Development · Architecture · AI led by judgment. Built with Nuxt 4 and deployed as a static site on Netlify.
 
 ## Stack
 
@@ -60,7 +60,7 @@ pnpm typecheck  # vue-tsc type check
 
 Netlify reads `netlify.toml`. The build command is `pnpm generate` and the publish directory is `.output/public`. `NODE_VERSION` is pinned to 22 and `NITRO_PRESET=static` is set in the environment.
 
-Canonical domain: **dannrodd.com**
+Canonical domain: **danrodd.dev**
 
 ## i18n
 

@@ -1,7 +1,7 @@
-# Daniel Andrés Rodríguez Solarte
+# Daniel Andrés Rodríguez
 
-**Desarrollador de Software Fullstack · Mentalidad de Arquitectura & DevSecOps**
-Neiva, Huila, Colombia · [contacto.danrod@gmail.com](mailto:contacto.danrod@gmail.com) · [GitHub](https://github.com/dannrodd) · [LinkedIn](https://co.linkedin.com/in/danrodd) · [dannrodd.com](https://dannrodd.com)
+**Desarrollo de Software · Arquitectura · IA dirigida por criterio**
+Neiva, Huila, Colombia · [contacto@danrodd.dev](mailto:contacto@danrodd.dev) · [GitHub](https://github.com/danrodd) · [LinkedIn](https://www.linkedin.com/in/danrodd) · [danrodd.dev](https://danrodd.dev)
 
 ## Resumen
 
@@ -9,16 +9,17 @@ Desarrollador fullstack con ~3 años de experiencia, enfocado en backend con Jav
 (Spring Boot) y microservicios, con una base poco común a mi nivel en
 infraestructura y DevSecOps. Empecé como junior en LianBPO, consolidé la mayor
 parte de lo que sé en MetrixAL (sistemas, infraestructura y liderazgo técnico de
-proyectos) y hoy desarrollo como fullstack en Transportes del Huila. Pienso y
-trabajo como arquitecto, aunque mi cargo actual es de desarrollador.
+proyectos) y hoy trabajo como Programador en Transportes del Huila. Pienso y
+trabajo como arquitecto, aunque mi cargo actual es de programador. Veo la IA como
+una herramienta poderosa: ella ejecuta y el criterio dirige.
 
 ## Experiencia
 
-### Transportes del Huila (TDH) — Desarrollador Fullstack · 2026 – Actualidad
+### Transportes del Huila (TDH) — Programador · 2026 – Actualidad
 - Desarrollo y mantengo `turnos.tdh.com.co` (.NET Core + Vue.js).
 - Propongo soluciones integrales e impulso la mejora continua de los sistemas.
 
-### MetrixAL — Backend Developer · liderazgo técnico de proyectos · 2023 – 2026
+### MetrixAL — Líder Técnico de Desarrollo · 2024 – 2026
 - Microservicios en Spring Boot (Kafka, Redis, API Gateway) y procesos ETL.
 - Migración multi-inquilino (Cashing): monolito Laravel → microservicios con Database-per-Tenant.
 - Optimización de reportes (Lawyer.Metrix): de >10 min a <1 min.
@@ -31,9 +32,9 @@ trabajo como arquitecto, aunque mi cargo actual es de desarrollador.
 
 ## Stack
 
-- **Backend:** Java/Spring Boot (principal), PHP/Laravel, Python/FastAPI, C#/.NET Core
+- **Backend:** .NET Core (actual), Java/Spring Boot (base de años), PHP/Laravel, Python/FastAPI
 - **Mensajería/servicios:** Kafka, Redis, API Gateway, Service Discovery
-- **Frontend:** Vue.js, Nuxt.js, Tailwind, TanStack · Next.js (en aprendizaje)
+- **Frontend:** Vue.js, Nuxt.js, Tailwind, TanStack · Go y SvelteKit (en aprendizaje)
 - **DevSecOps:** Kubernetes (K3s), Docker, Gitea, Nginx Proxy Manager, Rocky Linux, Vaultwarden
 - **Cloud:** AWS (EC2, VPN, S3, Route 53, WAF, ECR)
 - **Datos:** PostgreSQL, MariaDB, MySQL, MongoDB

@@ -102,3 +102,25 @@ body {
   color: var(--accent);
   letter-spacing: -0.005em;
 }
+
+/* Scrollbar personalizado: usa los tokens del tema, así reacciona a claro/oscuro.
+   Firefox vía scrollbar-* ; Chromium/WebKit vía ::-webkit-scrollbar. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border-radius: 6px;
+  border: 2px solid var(--bg); /* aire alrededor del thumb, color del fondo */
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}

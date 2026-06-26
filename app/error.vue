@@ -16,7 +16,7 @@ const is404 = computed(() => code.value === 404)
 const path = computed(() => route?.fullPath || '/')
 
 // Title uses only the status code so the app-wide titleTemplate appends the brand.
-// Result: "404 · Daniel Rodríguez Solarte" — no double-branding.
+// Result: "404 · Daniel Andrés Rodríguez" — no double-branding.
 useHead({ title: () => String(code.value) })
 useSeoMeta({ robots: 'noindex, nofollow' })
 

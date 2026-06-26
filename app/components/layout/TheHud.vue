@@ -15,7 +15,7 @@ const domain = computed(() => {
   try {
     return new URL(site.url ?? '').hostname
   } catch {
-    return site.url ?? 'dannrodd.com'
+    return site.url ?? 'danrodd.dev'
   }
 })
 </script>
@@ -31,7 +31,7 @@ const domain = computed(() => {
       <div class="flex min-w-0 items-center gap-2 overflow-hidden sm:gap-3">
         <span class="inline-flex shrink-0 items-center gap-2">
           <span class="h-1.5 w-1.5 rounded-full bg-[#10b981] shadow-[0_0_8px_#10b981]" />
-          <span>dannrodd.com</span>
+          <span>{{ domain }}</span>
         </span>
 
         <span class="shrink-0 text-white/50">·</span>

@@ -4,9 +4,9 @@
  * JSON-LD (sameAs). Cambiar aquí se propaga a todos.
  */
 export const CONTACT = {
-  email: 'contacto.danrod@gmail.com',
+  email: 'contacto@danrodd.dev',
   whatsapp: '573012106430', // formato internacional sin '+', para wa.me/<num>
-  github: 'https://github.com/dannrodd',
-  linkedin: 'https://co.linkedin.com/in/danrodd',
-  cv: '/cv.md'
+  github: 'https://github.com/danrodd',
+  linkedin: 'https://www.linkedin.com/in/danrodd',
+  cv: '/cv.pdf'
 } as const

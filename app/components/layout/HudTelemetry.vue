@@ -44,13 +44,13 @@ onMounted(() => {
 <template>
   <span class="hidden shrink-0 sm:inline">
     <span class="text-white/60">latency</span>
-    <span class="tabular-nums"> {{ latency }}</span>
+    <span class="tabular-nums">&nbsp;{{ latency }}</span>
   </span>
 
   <span class="shrink-0 text-white/50">·</span>
 
   <span class="shrink-0">
     <span class="text-white/60">GMT-5</span>
-    <span class="tabular-nums"> {{ time }}</span>
+    <span class="tabular-nums">&nbsp;{{ time }}</span>
   </span>
 </template>

@@ -1,10 +1,10 @@
 {
   "meta": {
-    "title": "Daniel Rodríguez Solarte — Software Architect & DevSecOps",
-    "description": "I design distributed systems that survive audits, scale, and Monday mornings."
+    "title": "Daniel Andrés Rodríguez — Software Developer · Architecture · AI",
+    "description": "Software developer with an architecture focus. AI executes; judgment leads."
   },
-  "role": "Software architect · DevSecOps · Tech Lead",
-  "pitch": "Designs distributed systems that survive audits, scale, and Monday mornings.",
+  "role": "Software development · Architecture · AI led by judgment",
+  "pitch": "AI executes; judgment leads. I design systems built to scale, endure and evolve — not just to get by.",
   "nav": {
     "about": "About",
     "experience": "Experience",
@@ -70,9 +70,9 @@
     "studying": "studying",
     "studyingMeta": "Politécnico Grancolombiano",
     "exploring": "exploring",
-    "exploringMeta": "building on my Vue foundation",
+    "exploringMeta": "new tools to build better",
     "improving": "improving",
-    "improvingMeta": "solid reading, conversational in progress"
+    "improvingMeta": "A2 · working toward B1"
   },
   "error": {
     "notFound": "Page not found",

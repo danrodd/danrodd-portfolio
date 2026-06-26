@@ -17,12 +17,12 @@ export const NOW: NowItem[] = [
   },
   {
     labelKey: 'nowLabels.exploring',
-    value: 'Next.js (React)',
+    value: 'Go · SvelteKit',
     metaKey: 'nowLabels.exploringMeta'
   },
   {
     labelKey: 'nowLabels.improving',
-    value: 'Inglés profesional',
+    value: 'Inglés',
     metaKey: 'nowLabels.improvingMeta'
   }
 ]
