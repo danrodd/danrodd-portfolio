@@ -28,7 +28,8 @@
     "decisions": {
       "title": "Decisiones públicas",
       "mark": "04 — decisiones públicas",
-      "intro": "Decisiones de arquitectura (ADRs) de este mismo sitio: contexto, alternativas y consecuencias. Lo que practico, lo documento."
+      "intro": "Decisiones de arquitectura (ADRs) de este mismo sitio: contexto, alternativas y consecuencias. Lo que practico, lo documento.",
+      "comingSoon": "Próximamente"
     },
     "stack": {
       "title": "Stack",

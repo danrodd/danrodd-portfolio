@@ -28,7 +28,8 @@
     "decisions": {
       "title": "Public decisions",
       "mark": "04 — public decisions",
-      "intro": "Architecture decision records (ADRs) of this very site: context, alternatives and consequences. What I practice, I document."
+      "intro": "Architecture decision records (ADRs) of this very site: context, alternatives and consequences. What I practice, I document.",
+      "comingSoon": "Coming soon"
     },
     "stack": {
       "title": "Stack",
