@@ -15,17 +15,18 @@ const code = computed(() => props.error?.statusCode ?? 500)
 const is404 = computed(() => code.value === 404)
 const path = computed(() => route?.fullPath || '/')
 
-useHead({ title: `${code.value} · Daniel Rodríguez Solarte` })
+// Title uses only the status code so the app-wide titleTemplate appends the brand.
+// Result: "404 · Daniel Andrés Rodríguez" — no double-branding.
+useHead({ title: () => String(code.value) })
+useSeoMeta({ robots: 'noindex, nofollow' })
 
-const goHome = () => clearError({ redirect: '/' })
+const goHome = () => clearError({ redirect: localePath('/') })
 </script>
 
 <template>
   <div class="flex min-h-screen flex-col items-center justify-center bg-bg px-6 py-16 text-ink">
     <!-- Tarjeta oscura: la "respuesta" del servidor al recurso inexistente -->
-    <div
-      class="relative w-full max-w-md overflow-hidden rounded-2xl border border-[#1c241c] bg-[#0c100c] p-5 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.5)]"
-    >
+    <DarkCard class="w-full max-w-md p-5">
       <div
         class="pointer-events-none absolute -top-1/2 -right-[15%] h-72 w-72 rounded-full"
         style="background: radial-gradient(circle, rgba(16, 185, 129, 0.16) 0%, transparent 65%)"
@@ -40,18 +41,18 @@ const goHome = () => clearError({ redirect: '/' })
       </div>
 
       <div class="space-y-1.5 font-mono text-[0.8rem] leading-relaxed">
-        <p class="truncate text-[#f0f2ed]/50">
+        <p class="truncate text-[#f0f2ed]/60">
           <span class="text-[#34d399]">$</span> GET {{ path }}
         </p>
         <p class="text-[#f0f2ed]">
           HTTP/1.1 <span class="text-[#f87171]">{{ code }}</span>
           {{ is404 ? 'Not Found' : 'Error' }}
         </p>
-        <p class="pt-1 text-[#f0f2ed]/35">
+        <p class="pt-1 text-[#f0f2ed]/55">
           # {{ is404 ? t('error.notFoundText') : t('error.genericText') }}
         </p>
       </div>
-    </div>
+    </DarkCard>
 
     <!-- Invitación a volver -->
     <button
@@ -68,7 +69,7 @@ const goHome = () => clearError({ redirect: '/' })
     </p>
     <nav
       class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2"
-      aria-label="Secciones"
+      :aria-label="t('a11y.navSections')"
     >
       <NuxtLink
         v-for="section in NAV_SECTIONS"

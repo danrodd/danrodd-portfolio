@@ -3,6 +3,7 @@
  * Shell del sitio: HUD (telemetría) + nav móvil + grid de 2 columnas
  * (sidebar sticky | contenido). Las páginas se inyectan en el <slot />.
  */
+const { t } = useI18n()
 </script>
 
 <template>
@@ -12,7 +13,7 @@
       href="#main"
       class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded focus:bg-ink focus:px-4 focus:py-2 focus:text-bg"
     >
-      Saltar al contenido
+      {{ t('a11y.skipToContent') }}
     </a>
 
     <TheHud />

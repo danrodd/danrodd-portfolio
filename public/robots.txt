@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Agentes y LLMs: resumen del perfil en /llms.txt
+Sitemap: https://danrodd.dev/sitemap_index.xml

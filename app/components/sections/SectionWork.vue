@@ -17,6 +17,17 @@ const toggle = (code: string) => {
 }
 // id válido para aria-controls (sin "/").
 const drawerId = (code: string) => `case-${code.replace('/', '-')}`
+
+// Move focus into the drawer when it opens so AT users land inside it.
+const drawerRefs = ref<Record<string, HTMLElement | null>>({})
+const setDrawerRef = (code: string, el: unknown) => {
+  drawerRefs.value[code] = el instanceof HTMLElement ? el : null
+}
+watch(open, async (code) => {
+  if (!code || !import.meta.client) return
+  await nextTick()
+  drawerRefs.value[code]?.focus()
+})
 </script>
 
 <template>
@@ -28,7 +39,7 @@ const drawerId = (code: string) => `case-${code.replace('/', '-')}`
 
     <ol class="flex flex-col">
       <li
-        v-for="c in cases"
+        v-for="c in (cases ?? [])"
         :key="c.code"
         class="-mx-[22px] grid grid-cols-1 gap-2 rounded-[10px] px-[22px] py-[22px] transition-colors hover:bg-bg-soft sm:grid-cols-[110px_1fr] sm:gap-[22px]"
       >
@@ -74,7 +85,7 @@ const drawerId = (code: string) => `case-${code.replace('/', '-')}`
             <li
               v-for="tech in c.stack"
               :key="tech"
-              class="rounded-full bg-accent-soft px-2.5 py-0.5 font-mono text-[0.68rem] font-medium text-accent"
+              class="rounded-full bg-accent-soft px-2.5 py-0.5 font-mono text-[0.68rem] font-medium text-accent-ink"
             >
               {{ tech }}
             </li>
@@ -86,7 +97,11 @@ const drawerId = (code: string) => `case-${code.replace('/', '-')}`
           <div
             v-if="open === c.code"
             :id="drawerId(c.code)"
-            class="case-prose col-span-full mt-2 rounded-[10px] border border-line bg-paper p-5 text-sm"
+            :ref="(el: unknown) => setDrawerRef(c.code, el)"
+            role="region"
+            :aria-label="c.title"
+            tabindex="-1"
+            class="case-prose col-span-full mt-2 rounded-[10px] border border-line bg-paper p-5 text-sm focus:outline-none"
           >
             <ContentRenderer :value="c" />
           </div>
@@ -107,6 +122,13 @@ const drawerId = (code: string) => `case-${code.replace('/', '-')}`
 .drawer-leave-to {
   opacity: 0;
   transform: translateY(-6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drawer-enter-active,
+  .drawer-leave-active {
+    transition-duration: 0ms;
+  }
 }
 
 /* Prosa del cuerpo del caso renderizado desde markdown. */

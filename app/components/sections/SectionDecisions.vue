@@ -18,24 +18,26 @@ const { data: adrs } = await useAsyncData(`adrs-${locale.value}`, () =>
     </p>
 
     <ol class="-mx-[14px] flex flex-col">
-      <li v-for="adr in adrs" :key="adr.code" class="border-b border-line last:border-none">
-        <!-- href="#" provisional: las páginas de detalle de ADR llegan en una fase posterior -->
-        <a
-          href="#"
-          class="group grid grid-cols-1 items-baseline gap-1 rounded-md p-[14px] transition-colors hover:bg-bg-soft sm:grid-cols-[72px_1fr_auto] sm:gap-[18px]"
+      <li v-for="adr in (adrs ?? [])" :key="adr.code" class="border-b border-line last:border-none">
+        <!-- Detail routes are not yet available; rendered as a non-interactive row.
+             Will become a <RouterLink> once ADR detail pages are implemented. -->
+        <div
+          aria-disabled="true"
+          :title="t('sections.decisions.comingSoon')"
+          class="grid cursor-default grid-cols-1 items-baseline gap-1 rounded-md p-[14px] sm:grid-cols-[72px_1fr_auto] sm:gap-[18px]"
         >
           <span class="font-mono text-[0.72rem] font-medium tracking-wide text-dim">
             {{ adr.date }}
           </span>
-          <span class="text-[0.94rem] font-medium text-ink transition-colors group-hover:text-accent">
+          <span class="text-[0.94rem] font-medium text-ink">
             {{ adr.title }}
           </span>
           <span
-            class="justify-self-start rounded-full bg-bg-soft px-2 py-0.5 font-mono text-[0.68rem] text-muted transition-colors group-hover:bg-accent-soft group-hover:text-accent sm:justify-self-auto"
+            class="justify-self-start rounded-full bg-bg-soft px-2 py-0.5 font-mono text-[0.68rem] text-muted sm:justify-self-auto"
           >
             {{ adr.code }}
           </span>
-        </a>
+        </div>
       </li>
     </ol>
   </section>

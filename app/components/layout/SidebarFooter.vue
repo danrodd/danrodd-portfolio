@@ -1,11 +1,18 @@
 <script setup lang="ts">
 import { FileText, Mail } from 'lucide-vue-next'
+import { CONTACT } from '~/data/contact'
 
 /**
  * Pie del sidebar: separador + fila de social (email, WhatsApp, GitHub,
- * LinkedIn, CV) y los controles de idioma y tema.
+ * LinkedIn, CV) y los controles de idioma y tema. Datos en data/contact.ts.
  * Los logos de marca son SVG inline (lucide ya no los trae).
  */
+const { t } = useI18n()
+
+// WhatsApp con mensaje prellenado bilingüe (?text=…), codificado para la URL.
+const whatsappUrl = computed(
+  () => `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(t('contact.whatsapp'))}`
+)
 </script>
 
 <template>
@@ -13,7 +20,7 @@ import { FileText, Mail } from 'lucide-vue-next'
     <ul class="flex items-center gap-4">
       <li>
         <a
-          href="mailto:daniel@example.dev"
+          :href="`mailto:${CONTACT.email}`"
           aria-label="Email"
           class="text-muted transition-colors hover:text-accent"
         >
@@ -22,7 +29,7 @@ import { FileText, Mail } from 'lucide-vue-next'
       </li>
       <li>
         <a
-          href="https://wa.me/57"
+          :href="whatsappUrl"
           target="_blank"
           rel="noopener"
           aria-label="WhatsApp"
@@ -33,7 +40,9 @@ import { FileText, Mail } from 'lucide-vue-next'
       </li>
       <li>
         <a
-          href="#"
+          :href="CONTACT.github"
+          target="_blank"
+          rel="noopener"
           aria-label="GitHub"
           class="text-muted transition-colors hover:text-accent"
         >
@@ -42,7 +51,9 @@ import { FileText, Mail } from 'lucide-vue-next'
       </li>
       <li>
         <a
-          href="#"
+          :href="CONTACT.linkedin"
+          target="_blank"
+          rel="noopener"
           aria-label="LinkedIn"
           class="text-muted transition-colors hover:text-accent"
         >
@@ -51,10 +62,10 @@ import { FileText, Mail } from 'lucide-vue-next'
       </li>
       <li>
         <a
-          href="/cv.pdf"
+          :href="CONTACT.cv"
           target="_blank"
           rel="noopener"
-          aria-label="Descargar CV (PDF)"
+          aria-label="Ver CV"
           class="text-muted transition-colors hover:text-accent"
         >
           <FileText :size="20" />

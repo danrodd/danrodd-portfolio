@@ -1,34 +1,37 @@
-name: ci
+name: CI
 
-on: push
+# Quality gate: corre en cada push/PR. El deploy lo hace la plataforma de
+# hosting (Netlify / Cloudflare Pages) por su integración con git; aquí solo
+# verificamos que el código pasa lint, tipos y build antes de mezclar/desplegar.
+on:
+  push:
+    branches: [main, development]
+  pull_request:
 
 jobs:
-  ci:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [22]
-
+  check:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v6
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
 
-      - name: Install node
-        uses: actions/setup-node@v6
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
+          node-version-file: .nvmrc
           cache: pnpm
 
-      - name: Install dependencies
-        run: pnpm install
+      - name: Install
+        run: pnpm install --frozen-lockfile
 
-      - name: Lint
-        run: pnpm run lint
+      - name: Lint + format (biome)
+        run: pnpm exec biome ci
 
       - name: Typecheck
-        run: pnpm run typecheck
+        run: pnpm typecheck
+
+      - name: Build (SSG)
+        run: pnpm generate

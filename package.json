@@ -1,5 +1,6 @@
 {
   "name": "dannrodd-portfolio",
+  "version": "0.6.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -19,11 +20,15 @@
     "@nuxt/image": "2.0.0",
     "@nuxtjs/color-mode": "^4.0.0",
     "@nuxtjs/i18n": "^10.4.0",
+    "@nuxtjs/sitemap": "^8.0.15",
+    "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/vite": "^4.3.0",
     "@vueuse/nuxt": "14.3.0",
     "lucide-vue-next": "0.577.0",
     "nuxt": "^4.4.6",
+    "nuxt-og-image": "^6.5.1",
     "nuxt-seo-utils": "8.1.11",
+    "satori": "^0.26.0",
     "shadcn-nuxt": "2.7.3",
     "tailwindcss": "^4.3.0"
   },

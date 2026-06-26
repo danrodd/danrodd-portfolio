@@ -2,10 +2,10 @@
 locale: en
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.
+I'm a fullstack software developer based in **Huila, Colombia**, with around three years of experience and a foundation —uncommon at my level— in infrastructure and *DevSecOps*. My foundation of years is backend with **Java (Spring Boot)** and microservices architecture; today, day to day, I work with **.NET Core**.
 
-Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+I started as a junior developer at LianBPO, and it was at **MetrixAL**, over nearly two years, where I built most of what I know: microservices, sovereign CI/CD, containers, cloud deployments and observability, growing to technically lead projects. Today, as a fullstack developer at **Transportes del Huila**, I apply that knowledge developing and maintaining systems.
 
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum, sed ut perspiciatis unde omnis iste natus.
+I don't (yet) hold an architect title, but I think and work like one: I prioritize design, good practices and a systems view over the rushed fix. I use AI as an amplifier, keeping judgment and decisions on my side.
 
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+I'm studying **Software Engineering** (5th semester) at Politécnico Grancolombiano and I'm a Technologist in Software Analysis and Development.

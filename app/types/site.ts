@@ -16,12 +16,16 @@ export interface NavSection {
 
 /** Entrada de la línea de tiempo de experiencia (sección Trayectoria). */
 export interface ExperienceEntry {
-  /** Periodo, ej. "2026 — Hoy". */
+  /** Periodo de inicio, ej. "20XX". Static, language-neutral. */
   period: string
+  /** Si true, el periodo cierra con la palabra localizada "present"/"Hoy". */
+  current?: boolean
   /** Clave i18n del rol. */
   roleKey: string
   /** Empresa. */
   company: string
+  /** URL pública de la empresa (opcional). Cuando se provee, el nombre se renderiza como enlace. */
+  companyUrl?: string
   /** Clave i18n de la descripción. */
   descKey: string
   /** Tecnologías/tags. */

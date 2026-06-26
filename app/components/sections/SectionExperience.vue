@@ -14,18 +14,27 @@ const { t } = useI18n()
 
     <ol class="flex flex-col">
       <li
-        v-for="(exp, i) in EXPERIENCE"
-        :key="i"
+        v-for="exp in EXPERIENCE"
+        :key="exp.company"
         class="group -mx-[22px] grid grid-cols-1 gap-2 rounded-[10px] px-[22px] py-[22px] transition-colors hover:bg-bg-soft sm:grid-cols-[110px_1fr] sm:gap-[22px]"
       >
         <div class="pt-1 font-mono text-[0.72rem] font-medium tracking-wide text-muted">
-          {{ exp.period }}
+          {{ exp.current ? `${exp.period} — ${t('experience.present')}` : exp.period }}
         </div>
 
         <div>
           <h3 class="mb-2 text-base font-semibold leading-tight text-ink">
             {{ t(exp.roleKey) }}
-            <span class="ml-1 text-ink transition-colors group-hover:text-accent">
+            <a
+              v-if="exp.companyUrl"
+              :href="exp.companyUrl"
+              target="_blank"
+              rel="noopener"
+              class="ml-1 text-ink transition-colors group-hover:text-accent"
+            >
+              @ {{ exp.company }} ↗<span class="sr-only">{{ t('a11y.newTab') }}</span>
+            </a>
+            <span v-else class="ml-1 text-ink transition-colors group-hover:text-accent">
               @ {{ exp.company }} ↗
             </span>
           </h3>
@@ -34,7 +43,7 @@ const { t } = useI18n()
             <li
               v-for="tag in exp.tags"
               :key="tag"
-              class="rounded-full bg-accent-soft px-2.5 py-0.5 font-mono text-[0.68rem] font-medium text-accent transition-colors group-hover:bg-accent group-hover:text-paper"
+              class="rounded-full bg-accent-soft px-2.5 py-0.5 font-mono text-[0.68rem] font-medium text-accent-ink transition-colors group-hover:bg-accent group-hover:text-paper"
             >
               {{ tag }}
             </li>
@@ -49,7 +58,8 @@ const { t } = useI18n()
       rel="noopener"
       class="mt-6 inline-flex items-center gap-1.5 border-b border-ink pb-0.5 font-mono text-sm font-medium text-ink transition-all hover:gap-2.5 hover:border-accent hover:text-accent"
     >
-      {{ t('sections.experience.cta') }} <span>↗</span>
+      {{ t('sections.experience.cta') }} <span aria-hidden="true">↗</span>
+      <span class="sr-only">{{ t('a11y.newTab') }}</span>
     </a>
   </section>
 </template>

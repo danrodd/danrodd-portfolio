@@ -50,7 +50,9 @@ export default defineContentConfig({
         code: z.string(), // "ADR-001"
         order: z.number().default(0),
         title: z.string(),
-        status: z.enum(['accepted', 'proposed', 'draft']).default('draft'),
+        status: z
+          .enum(['accepted', 'proposed', 'draft', 'rejected', 'superseded'])
+          .default('draft'),
         date: z.string() // "20XX · 00"
       })
     })

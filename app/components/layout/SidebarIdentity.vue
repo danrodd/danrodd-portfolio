@@ -1,23 +1,26 @@
 <script setup lang="ts">
 /**
- * Bloque de identidad del sidebar: avatar (iniciales mientras no haya foto),
- * nombre, rol y pitch. Solo presentación; los textos vienen de i18n.
+ * Bloque de identidad del sidebar: avatar (foto), nombre, rol y pitch.
+ * Solo presentación; los textos vienen de i18n.
  */
 const { t } = useI18n()
 </script>
 
 <template>
   <div>
-    <figure
-      class="mb-5 flex h-[72px] w-[72px] items-center justify-center rounded-[18px] bg-gradient-to-br from-accent to-[#0284c7] font-mono text-2xl font-bold text-white"
-      aria-hidden="true"
-    >
-      DR
-    </figure>
+    <NuxtImg
+      src="/avatar.webp"
+      alt="Daniel Andrés Rodríguez"
+      width="144"
+      height="144"
+      sizes="144px"
+      loading="eager"
+      class="mb-5 h-[144px] w-[144px] rounded-[28px] object-cover ring-1 ring-line"
+    />
 
     <h1 class="text-[2rem] font-bold leading-none tracking-tight text-ink">
-      Daniel Rodríguez<br>
-      <span class="ital text-[1.6rem]">Solarte</span>
+      Daniel Andrés<br>
+      <span class="ital text-[1.6rem]">Rodríguez</span>
     </h1>
 
     <p class="mt-4 font-mono text-xs lowercase tracking-wide text-accent">

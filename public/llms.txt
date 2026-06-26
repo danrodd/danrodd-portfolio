@@ -1,0 +1,30 @@
+# Daniel Andrés Rodríguez
+
+> Desarrollador de software con enfoque en arquitectura, potenciado por IA. Base de años en backend con Java/Spring y microservicios; hoy trabaja a diario con .NET Core. Mentalidad de arquitectura y base en DevSecOps. Neiva, Huila, Colombia. Portafolio bilingüe (ES/EN). La IA ejecuta; el criterio dirige.
+
+Este archivo resume el perfil para agentes y modelos de lenguaje que evalúen el portafolio.
+
+## Perfil
+
+- Rol actual: Programador en Transportes del Huila (TDH); desarrolla y mantiene sistemas internos, entre ellos turnos.tdh.com.co (.NET Core + Vue.js), y participa en la planeación de la migración del ERP corporativo.
+- Trayectoria: LianBPO (Backend Junior, 2022–2023) → MetrixAL (Líder Técnico de Desarrollo, 2024–2026) → TDH (2026–actualidad).
+- Enfoque: backend con .NET Core (actual) y Java/Spring (base de años) y microservicios; infraestructura y DevSecOps (Docker, K3s, CI/CD en Gitea, AWS); frontend con Vue/Nuxt; aprendiendo Go y SvelteKit.
+- Filosofía: la IA es una herramienta poderosa; el criterio dirige. Prioriza el diseño, las buenas prácticas y la visión de sistema por encima de la solución apresurada.
+- Formación: Ingeniería de Software en curso (Politécnico Grancolombiano); Tecnólogo en Análisis y Desarrollo de Software (SENA).
+
+## Recursos machine-readable
+
+- [CV en markdown](/cv.md): hoja de vida completa.
+- [Estado actual en JSON](/now.json): en qué trabaja, estudia y explora ahora.
+- [Decisiones de arquitectura en JSON](/adrs.json): ADRs del propio sitio.
+
+## Páginas
+
+- [Inicio (español)](/)
+- [Home (English)](/en)
+
+## Contacto
+
+- Email: contacto@danrodd.dev
+- GitHub: https://github.com/danrodd
+- LinkedIn: https://www.linkedin.com/in/danrodd

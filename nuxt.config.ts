@@ -1,11 +1,18 @@
 import tailwindcss from '@tailwindcss/vite'
+import pkg from './package.json' with { type: 'json' }
+
+const { version } = pkg
 
 // Prefijo de marca para todo lo que el sitio persista en el navegador
 // (localStorage y cookies). Mantiene el storage ordenado e identificable al
-// abrir devtools. Convención: `dannrodd-<clave>`. Se usa `-` (no `:`) porque es
+// abrir devtools. Convención: `danrodd-<clave>`. Se usa `-` (no `:`) porque es
 // válido tanto en localStorage como en nombres de cookie (el `:` no es estándar
 // en cookies), así todas las claves comparten el mismo separador.
-const STORAGE_PREFIX = 'dannrodd'
+const STORAGE_PREFIX = 'danrodd'
+
+// URL canónica del sitio. Fuente única para site config (canonical/OG),
+// hreflang de i18n y el sitemap. Cambiar aquí al dominio definitivo.
+const SITE_URL = 'https://danrodd.dev'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -16,6 +23,8 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n', // ES/EN con rutas (ADR-003)
     '@vueuse/nuxt', // composables: useIntervalFn, useMagicKeys, useClipboard…
     'nuxt-seo-utils', // og:tags, meta, canonical
+    'nuxt-og-image', // og:image generation — reads site.url for absolute URLs
+    '@nuxtjs/sitemap', // sitemap.xml automático (con hreflang por i18n)
     '@nuxtjs/color-mode' // modo claro/oscuro sin flash en SSG (ADR del sitio)
     // 'shadcn-nuxt'  // requiere `npx shadcn-vue@latest init` antes de activar
   ],
@@ -27,7 +36,7 @@ export default defineNuxtConfig({
     classSuffix: '',
     preference: 'system', // respeta prefers-color-scheme por defecto
     fallback: 'light',
-    storageKey: `${STORAGE_PREFIX}-theme` // localStorage → 'dannrodd-theme'
+    storageKey: `${STORAGE_PREFIX}-theme` // localStorage → 'danrodd-theme'
   },
 
   devtools: { enabled: true },
@@ -52,6 +61,14 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  // OG image: una sola imagen estática para todo el sitio (ver app.vue).
+  // zeroRuntime = se prerenderiza en build y se saca satori/resvg del bundle de
+  // Nitro y de las rutas de runtime. Quita ~peso del arranque en dev y del
+  // server bundle, sin perder la imagen en producción (SSG la prerenderiza).
+  ogImage: {
+    zeroRuntime: true
+  },
+
   // Tailwind v4 se integra como plugin de Vite (ya no hay módulo Nuxt)
   vite: {
     plugins: [tailwindcss()],
@@ -63,12 +80,13 @@ export default defineNuxtConfig({
 
   i18n: {
     defaultLocale: 'es',
+    baseUrl: SITE_URL, // necesario para hreflang absolutos y canonical por idioma
     strategy: 'prefix_except_default', // ES en "/", EN en "/en"
     locales: [
       { code: 'es', language: 'es-CO', name: 'Español', file: 'es.json' },
       { code: 'en', language: 'en-US', name: 'English', file: 'en.json' }
     ],
-    // Misma convención de prefijo que el theme: cookie 'dannrodd-lang' en vez
+    // Misma convención de prefijo que el theme: cookie 'danrodd-lang' en vez
     // del 'i18n_redirected' por defecto.
     detectBrowserLanguage: {
       cookieKey: `${STORAGE_PREFIX}-lang`,
@@ -81,11 +99,18 @@ export default defineNuxtConfig({
     '/': { prerender: true }
   },
 
-  // Config de sitio (nuxt-site-config, usada por nuxt-seo-utils para canonical/OG).
+  // Config de sitio (nuxt-site-config, usada por nuxt-seo-utils para canonical/OG
+  // y por @nuxtjs/sitemap).
   site: {
-    name: 'Daniel Rodríguez Solarte',
-    url: 'https://daniel.rs',
+    name: 'Daniel Andrés Rodríguez',
+    url: SITE_URL,
     defaultLocale: 'es'
+  },
+
+  runtimeConfig: {
+    public: {
+      appVersion: version
+    }
   },
 
   compatibilityDate: '2025-01-15'

@@ -1,30 +1,29 @@
 import type { ExperienceEntry } from '~/types'
 
 /**
- * Línea de tiempo de experiencia (sección Trayectoria).
- * CONTENIDO DE EJEMPLO: cargos, empresas y descripciones son placeholder hasta
- * validar la información real. Los textos traducibles viven en i18n (roleKey/descKey).
+ * Línea de tiempo de experiencia (sección Trayectoria), del rol actual al primero.
+ * Textos traducibles en i18n (roleKey/descKey); aquí solo estructura.
  */
 export const EXPERIENCE: ExperienceEntry[] = [
   {
-    period: '20XX — Hoy',
-    roleKey: 'experience.e1.role',
-    company: 'Empresa Uno',
-    descKey: 'experience.e1.desc',
-    tags: ['Tecnología A', 'Tecnología B', 'Tecnología C']
+    period: '2026 — Hoy',
+    roleKey: 'experience.tdh.role',
+    company: 'Transportes del Huila',
+    descKey: 'experience.tdh.desc',
+    tags: ['.NET Core', 'Vue.js', 'Next.js', 'FastAPI', 'SQL Server', 'Fullstack']
   },
   {
-    period: '20XX — 20XX',
-    roleKey: 'experience.e2.role',
-    company: 'Empresa Dos',
-    descKey: 'experience.e2.desc',
-    tags: ['Tecnología A', 'Tecnología D', 'Tecnología E']
+    period: '2024 — 2026',
+    roleKey: 'experience.metrix.role',
+    company: 'MetrixAL',
+    descKey: 'experience.metrix.desc',
+    tags: ['Java · Spring', 'Microservicios', 'K3s', 'AWS', 'Gitea']
   },
   {
-    period: '20XX — 20XX',
-    roleKey: 'experience.e3.role',
-    company: 'Empresa Tres',
-    descKey: 'experience.e3.desc',
-    tags: ['Tecnología B', 'Tecnología F']
+    period: '2022 — 2023',
+    roleKey: 'experience.lian.role',
+    company: 'LianBPO',
+    descKey: 'experience.lian.desc',
+    tags: ['Laravel', 'Vue.js', 'PostgreSQL']
   }
 ]

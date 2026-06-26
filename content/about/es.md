@@ -2,10 +2,10 @@
 locale: es
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.
+Soy desarrollador de software fullstack basado en **Huila, Colombia**, con alrededor de tres años de experiencia y una base —poco común a mi nivel— en infraestructura y *DevSecOps*. Mi base de años está en el backend con **Java (Spring Boot)** y la arquitectura de microservicios; hoy, en mi día a día, trabajo con **.NET Core**.
 
-Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+Empecé como desarrollador junior en LianBPO, y fue en **MetrixAL**, durante casi dos años, donde construí la mayor parte de lo que sé: microservicios, CI/CD soberano, contenedores, despliegues en la nube y observabilidad, llegando a liderar técnicamente proyectos. Hoy, como desarrollador fullstack en **Transportes del Huila**, aplico ese conocimiento desarrollando y manteniendo sistemas.
 
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum, sed ut perspiciatis unde omnis iste natus.
+No tengo (aún) un cargo de arquitecto, pero pienso y trabajo como tal: priorizo el diseño, las buenas prácticas y la visión de sistema por encima de la solución apresurada. Uso la IA como amplificador, manteniendo el criterio y las decisiones de mi lado.
 
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+Estudio **Ingeniería de Software** (5.º semestre) en el Politécnico Grancolombiano y soy Tecnólogo en Análisis y Desarrollo de Software.

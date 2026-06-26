@@ -10,7 +10,8 @@ const { t } = useI18n()
 
 // Geometría del diagrama (viewBox 280×320): raíz "DR" arriba y 6 nodos en 2
 // filas de 3. Posiciones fijas; el texto se sitúa 27px bajo cada nodo.
-const NODE_POS: Record<string, { cx: number; cy: number }> = {
+// El tipo garantiza que toda id de NAV_SECTIONS tenga una posición definida.
+const NODE_POS: Record<(typeof NAV_SECTIONS)[number]['id'], { cx: number; cy: number }> = {
   about: { cx: 50, cy: 128 },
   experience: { cx: 140, cy: 128 },
   work: { cx: 230, cy: 128 },
@@ -20,11 +21,10 @@ const NODE_POS: Record<string, { cx: number; cy: number }> = {
 }
 
 // Nodos = secciones (id + número) con su posición en el diagrama.
-// El `?? {…}` es un guardia de tipos (toda sección de NAV_SECTIONS tiene posición).
 const nodes = NAV_SECTIONS.map((s) => ({
   id: s.id,
   num: s.num,
-  ...(NODE_POS[s.id] ?? { cx: 0, cy: 0 })
+  ...NODE_POS[s.id]
 }))
 
 // Aristas: raíz → fila 1 (curvas) y fila 1 → fila 2 (rectas).
@@ -32,9 +32,10 @@ const EDGES = [
   { target: 'about', d: 'M140,42 Q90,80 50,120' },
   { target: 'experience', d: 'M140,42 L140,120' },
   { target: 'work', d: 'M140,42 Q190,80 230,120' },
-  { target: 'decisions', d: 'M50,135 L50,220' },
-  { target: 'stack', d: 'M140,135 L140,220' },
-  { target: 'now', d: 'M230,135 L230,220' }
+  // Empiezan en y=165 (debajo del texto del nodo de la fila 1) para no cruzarlo.
+  { target: 'decisions', d: 'M50,165 L50,220' },
+  { target: 'stack', d: 'M140,165 L140,220' },
+  { target: 'now', d: 'M230,165 L230,220' }
 ]
 
 // Scroll-spy: resalta el nodo (y su arista) de la sección visible.
@@ -44,13 +45,14 @@ const { active } = useActiveSection(NAV_SECTIONS.map((s) => s.id))
 <template>
   <nav
     class="schema mt-8 hidden flex-1 items-start justify-center lg:flex"
-    aria-label="Secciones del sitio"
+    :aria-label="t('a11y.navSections')"
   >
     <svg
       viewBox="0 0 280 320"
+      width="280"
+      height="320"
       class="schema-svg"
-      role="img"
-      aria-label="Diagrama de secciones del sitio"
+      aria-hidden="true"
     >
       <!-- Aristas (raíz → nodos). Se activan junto con su nodo destino. -->
       <g class="schema-paths">
@@ -75,9 +77,10 @@ const { active } = useActiveSection(NAV_SECTIONS.map((s) => s.id))
         :key="node.id"
         class="schema-node"
         :class="{ 'is-active': active === node.id }"
-        role="link"
+        role="button"
         tabindex="0"
         :aria-label="`${node.num} · ${t(`nav.${node.id}`)}`"
+        :aria-current="active === node.id ? 'location' : undefined"
         @click="scrollToSection(node.id)"
         @keydown.enter.prevent="scrollToSection(node.id)"
         @keydown.space.prevent="scrollToSection(node.id)"
@@ -151,8 +154,10 @@ const { active } = useActiveSection(NAV_SECTIONS.map((s) => s.id))
 .schema-node {
   cursor: pointer;
 }
-.schema-node:focus {
-  outline: none;
+.schema-node:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 50%;
 }
 .schema-node circle {
   fill: var(--paper);
