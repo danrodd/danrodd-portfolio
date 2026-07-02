@@ -43,7 +43,7 @@ useHead({
 // Site-wide OG image via nuxt-og-image. The module emits og:image and
 // twitter:image meta tags automatically from this definition.
 // NuxtSeo template is the built-in branded template from nuxt-og-image.
-defineOgImageComponent('NuxtSeoSatori', {
+defineOgImage('NuxtSeoSatori', {
   title: site.name,
   description: () => t('meta.description')
 })
